@@ -79,6 +79,7 @@ body {
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
+    user-select: none;
 }
 
 .loading-init {
