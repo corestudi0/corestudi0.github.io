@@ -1,3 +1,3 @@
-# 这里是构成我们网站的文件
+# 这里是网站根目录
 
-前往我们的网站 [**跳转**](https://corestudi0.github.io)
+前往首页 [**跳转**](https://corestudi0.github.io/chs)
