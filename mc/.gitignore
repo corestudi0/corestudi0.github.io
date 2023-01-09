@@ -1,0 +1,5 @@
+node_modules
+src/dist
+src/assets/blocks
+src/assets/items
+assets/pack
