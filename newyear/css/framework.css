@@ -1,0 +1,268 @@
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*
+Framework Name: {solid}
+Author: pixek
+Author URL: http://pixek.com
+Description: A basic CSS framework.
+Version: 1.1.3.131111
+License: You are NOT allowed to use this framework in any type of projects, personal or commercial, without a valid license.
+*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////// Framework CSS Rules Start                                                                          */
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	outline: none;
+	font-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	appearance: normal;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	transform: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+}
+*:focus {
+	outline: none;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #666;
+	background: #fefefe;
+	line-height: 18px;
+}
+::selection {
+	background-color: #1cbbb4;
+	color: #fff;
+}
+div, header, footer, section, article, nav, button, a, p, img, ul, ol, blockquote, form, fieldset, textarea, input, label, iframe, code, pre {
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+p {
+	line-height: 18px;
+	margin-bottom: 18px;
+	font-size: 12px;
+}
+p > a {
+	color: #1cbbb4;
+	display: inline;
+	text-decoration: none;
+}
+p > a:hover {
+	text-decoration: underline;
+}
+p > span {
+	display: inline;
+}
+span > a {
+	display: inline;
+}
+a > span {
+	display: inline;
+}
+a {
+	text-decoration: none;
+	color: #1cbbb4;
+}
+a:hover {
+	text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 18px;
+}
+h1 {
+	font-size: 20px;
+	line-height: 23px;
+}
+h2 {
+	font-size: 18px;
+	line-height: 21px;
+	padding-bottom: 1px;
+}
+h3 {
+	font-size: 16px;
+	line-height: 20px;
+	padding-top: 1px;
+}
+h4 {
+	font-size: 14px;
+	line-height: 18px;
+	padding-bottom: 1px;
+}
+h5 {
+	font-size: 12px;
+	line-height: 18px;
+}
+h6 {
+	font-size: 10px;
+	line-height: 16px;
+}
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+	color: #333;
+	display: inline;
+}
+textarea {
+	margin-bottom: 27px;
+	border: 1px solid #e9e9e9;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	font-family: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: #f6f6f6;
+	line-height: 18px;
+	color: #666;
+	width: 180px;
+	height: 90px;
+	overflow-y: auto;
+}
+input[type="text"], input[type="password"] {
+	margin-bottom: 27px;
+	border: 1px solid #e9e9e9;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	font-family: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: #f6f6f6;
+	color: #666;
+	height: 16px;
+	line-height: 16px;
+	font-size: 12px;
+	width: 180px;
+}
+input[type="checkbox"] {
+	display: inline;
+	appearance: normal;
+	-webkit-appearance: checkbox;
+	-moz-appearance: checkbox;
+	margin-right:12px;
+}
+input[type="radio"] {
+	display: inline;
+	appearance: normal;
+	-webkit-appearance: radio;
+	-moz-appearance: radio;
+	margin-right:12px;
+}
+select {
+	appearance: normal;
+	-webkit-appearance: menulist;
+	-moz-appearance: menulist;
+	margin-bottom: 27px;
+	height: 36px;
+	line-height: 36px;
+	width:180px;
+	padding-left:12px;
+}
+input[type="submit"] {
+	font-family: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #e9e9e9;
+	font-weight: bold;
+	padding: 0px;
+	background-color: #333;
+	line-height: 24px;
+	height: 24px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+input[type="submit"]:hover {
+	cursor: pointer;
+	color: #fff;
+}
+input:focus, textarea:focus {
+	outline: 0;
+	background-color: #fff;
+	border-color: #e9e9e9;
+}
+fieldset > *:last-child {
+	margin-bottom: 0px;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	background-color: #f6f6f6;
+	border-left: 1px solid #e9e9e9;
+	border-top: 1px solid #e9e9e9;
+	width: 100%;
+	clear: both;
+	margin-bottom: 27px;
+}
+thead {
+}
+th {
+	height: 48px;
+	line-height: 48px;
+	vertical-align: middle;
+	border-bottom: 1px solid #e9e9e9;
+	border-right: 1px solid #e9e9e9;
+	font-weight: bold;
+	color: #555;
+	background-color: #f6f6f6;
+}
+tr {
+	line-height: 18px;
+}
+td {
+	border-right: 1px solid #e9e9e9;
+	border-bottom: 1px solid #e9e9e9;
+	text-align: center;
+	color: #666;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	line-height: 18px;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+}
+tr:hover > td {
+	background-color: #fff;
+}
+ul {
+	list-style: square inside;
+	margin-bottom: 27px;
+	position: relative;
+}
+ol {
+	list-style: decimal inside;
+	margin-bottom: 27px;
+	position: relative;
+}
+li {
+	padding-left: 12px;
+	line-height: 18px;
+	margin-bottom: 18px;
+	display: list-item;
+	position: relative;
+}
+ol > li:last-child, ul > li:last-child {
+	margin-bottom: 0px;
+}
+.clear {
+	clear: both;
+	height: 0px;
+	line-height: 0px;
+}
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////// Framework CSS Rules End                                                                            */
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

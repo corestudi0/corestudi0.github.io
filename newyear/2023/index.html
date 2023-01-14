@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>新年快乐~</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script>
+        //判断客户端设备，选择写入meta
+        function init_viewport() {
+            if (navigator.userAgent.indexOf('Android') != -1) {
+                var version = parseFloat(RegExp.$1);
+                if (version > 2.3) {
+                    var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+                    var phoneScale = parseInt(width) / 500;
+                    document.write('<meta name="viewport" content="width=500, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+                } else {
+                    document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi, user-scalable=0">');
+                }
+            } else if (navigator.userAgent.indexOf('iPhone') != -1) {
+                var phoneScale = parseInt(window.screen.width) / 500;
+                document.write('<meta name="viewport" content="width=500, min-height=750, initial-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=0" /> ');         //0.75   0.82
+            } else {
+                document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> '); //0.75  0.82
+            }
+        }
+        init_viewport();
+    </script>
+    <style>body{ margin:0 auto;}#div_is_inner{background: rgba(255, 255, 255, 0.8);}</style>
+    
+</head>
+
+<body style="overflow-x:hidden;overflow-y:hidden;">
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div id="div_container">
+    <!-- 最外层div，用于居中兼容PC和移动 -->
+   <!-- 用于遮挡主题，作为片头的背景 -->
+    <!-- 按需加载，选择此片头时方才加载 -->
+    <div id="div_intersect" style="display: block;height:100%; background-image: url(images/6kcl8u.jpg);">
+        <!-- 用于设置背景 -->
+        <div id="div_is_inner">
+            <!-- 用于存放content -->
+            <div class="div_is_open_bg">
+                <div class="div_is_open_btn" onclick="start1()" style="background-image: url(images/open_letter.jpg);"></div>
+            </div>
+
+            <!-- 打字在这里 -->
+            <div id="div_is_img">
+                <img class="ksBtn" src="images/i2c2dx.jpg" >
+            </div>
+                <div id="text" style="display:none;">倒计时<br><br><span id="time"></span><br><br>岁未将至 平安喜乐 2023万事如意🧨<br>唯愿烟花像星辰   祝你所愿皆成真🧨<br><br>你是第<span id="busuanzi_value_page_pv"></span>个收到祝福的人</div><!--此处已进行修改，优化了倒计时-->
+                <div class="type_words" id="contents" style="font-size:1.4rem;line-height:1.5rem;padding: 0px 20px;"></div>
+        </div>
+    </div>
+    <script>
+        var aaa = $(document).height() +2;
+
+        $("#div_intersect").css("height",aaa + "px");
+    </script>
+    <div id="div_hearttree">
+        <div id="div_tree_error">很可惜你的手机浏览器不支持，错过了惊喜效果哦</div>
+        <div id="div_tree_start"></div>
+        <div id="div_tree_main">
+            <div id="div_tree_text">
+                <span id="span_tree_typed"></span>
+            </div>
+            <canvas id="canvas_tree" width="500" height="815"></canvas>
+            <div id="div_tree_timer">
+                <span id="span_tree_desc"></span>
+                <div id="div_tree_interval"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id='div_btn_container'>
+        <!-- 按钮部分的最外层，处于文档流之中 -->
+        <div id="div_btn_inner">
+            <!-- 按钮部分内层，用于定位 -->
+
+            <div class='div_music_tips'></div>
+            <div class="div_btn" id="div_music" onclick="music_switch()">
+                <!--<img id='img_music' src='images/music_note_big.png' style='-webkit-animation:music_play_rotate 1s linear infinite'>-->
+                <audio id="audio_music" autoplay="autoplay" preload="auto" loop>
+                    <source src="https://sf3-cdn-tos.douyinstatic.com/obj/ies-music/55b4c0e485a2c608a292158cb02c2610.mp3" type="audio/mpeg" />
+                    <embed id="main_audio_ie8" hidden="true" autostart="true" height="0" width=0 loop="true" src="https://sf3-cdn-tos.douyinstatic.com/obj/ies-music/55b4c0e485a2c608a292158cb02c2610.mp3" autoplay="autoplay"/>
+                </audio>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+
+<script src="js/typeit.min.js"></script>
+<script src="js/su.js"></script>
+
+<script type="text/javascript">
+
+    var id = "467429";
+
+    function start1(){
+        $(".div_is_open_bg").hide();
+        $(".div_is_typed").hide();
+        audioAutoPlay('audio_music');
+        start();
+
+
+
+    }
+	
+    function audioAutoPlay(id){
+        var audio = document.getElementById(id),
+            play = function(){
+                audio.play();
+                document.removeEventListener("touchstart",play, false);
+            };
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            play();
+        }, false);
+        document.addEventListener('YixinJSBridgeReady', function() {
+            play();
+        }, false);
+        document.addEventListener("touchstart",play, false);
+    }
+    
+    $(function(){
+        audioAutoPlay('audio_music');
+    });
+    
+</script>
+
+<script>
+	
+	
+
+
+		function time() {
+    window.setTimeout("time()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var newYear=todayYear+1
+    var lastYear=todayYear-1
+    var todayMonth = today.getMonth() + 1
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(newYear, 1, 21, 0, 00, 00)
+    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
+    var diff = t1 - t2
+    var diff2 = t2-t1
+    var diffYears = Math.floor(diff / years)
+    var diffDays = Math.floor((diff / days) - diffYears * 365)
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours)
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes)
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+        minutes) / seconds)
+    var diff2Years = Math.floor(diff2 / years)
+    var diff2Days = Math.floor((diff2 / days) - diff2Years * 365)
+    var diff2Hours = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days) / hours)
+    var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
+    var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
+        minutes) / seconds)
+     
+     if(todayMonth==1){document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!"}
+}
+time()
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c314395e62fb55e30828e0ea8cca8b3a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+    $('#ksBtn').click(e => {
+        $('#ksBtn').hide()
+        setTimeout(() => {
+            start();
+        }, 1000);
+    })
+
+    function start() {
+        let str = $("#text").html(); //"于我而言，你是最好且是唯一"
+        let str_ = ''
+        let i = 0
+        let content = document.getElementById('contents')
+        let timer = setInterval(() => {
+            if (str_.length < str.length) {
+                str_ += str[i++]
+                content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1;    color: black;">∎</span></p>' //打印时加光标
+            } else {
+                clearInterval(timer)
+                content.innerHTML = '<p>' + str_ + '</p>'
+            }
+        }, 100)
+    }
+</script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">访问量<span id="busuanzi_value_page_pv"></span>次</span>
+</body>
+</html>

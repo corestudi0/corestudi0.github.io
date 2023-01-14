@@ -1,0 +1,273 @@
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box
+}
+
+body {
+	background-color: #fff
+}
+
+a {
+	color: #fff;
+	text-decoration: none
+}
+
+#div_container {
+	width: 500px;
+	margin: 0 auto;
+	position: relative;
+	font-size: 1em
+}
+
+#div_start_bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 44;
+	background-color: #fff
+}
+
+.div_pure_words {
+	position: relative;
+	display: none
+}
+
+.div_pure_words_bg {
+	background-repeat: repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+	width: 500px;
+	min-height: 500px
+}
+
+.div_pure_words_height {
+	visibility: hidden;
+	padding: 30px;
+	text-align: justify;
+	white-space: pre-wrap;
+	font-size: 1.1em;
+	font-family: "Microsoft YaHei",Arial;
+	color: #fff
+}
+
+.div_pw_typed {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 500px;
+	background: rgba(255,255,255,.8);
+	padding: 30px;
+	text-align: justify
+}
+
+#span_pw_typed {
+	width: 100%;
+	white-space: pre-wrap;
+	font-size: 1.1em;
+	font-family: "Microsoft YaHei",Arial
+}
+
+#div_start_bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 44;
+	background-color: #fff
+}
+
+#box {
+	width: 100%;
+	padding: 0;
+	margin: 2rem auto;
+	background-color: rgba(0,0,0,0);
+	border-radius: 20px;
+	color: #000;
+	font-size: 1.2rem;
+	line-height: 2.4rem;
+
+}
+/*
+
+#box {
+	width: 100%;
+	padding: 1.5rem 1.5rem;
+	margin: 2rem auto;
+	background-color: rgba(0,0,0,.3);
+	border-radius: 20px;
+	color: #fff;
+	text-shadow: 0 0 3px #000;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+
+}
+*/
+
+#box b {
+	font-size: 1.5rem;
+	display: block;
+	padding-bottom: .5rem
+}
+
+
+
+#div_btn_inner {
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+	width: 500px;
+	padding-left: 430px
+}
+
+.div_btn {
+	position: fixed;
+	cursor: pointer;
+	width: 42px;
+	height: 42px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	font-size: 1em;
+	line-height: 40px;
+	text-align: center;
+	z-index: 999
+}
+
+#btn-make {
+	bottom: 180px;
+	right: 30px;
+	background-color: rgba(0,0,0,.3)
+}
+
+
+
+#div_support {
+	bottom: 120px;
+	right: 30px;
+	background-color: rgba(0,0,0,.3)
+}
+
+
+#div_music {
+	border: none;
+	top: 30px
+}
+
+#div_support {
+	bottom: 120px;
+	right: 30px;
+	background-color: rgba(0,0,0,.3)
+}
+
+.div_music_tips {
+	position: fixed;
+	top: 70px;
+	z-index: 999
+}
+
+@-webkit-keyframes music_play_rotate {
+	0% {
+		-webkit-transform: rotate(0)
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+#div_intersect {
+	position: relative;
+	width: 100%;
+	z-index: 666;
+	display: none;
+	background-repeat: repeat;
+	background-size: 100%;
+	overflow: hidden
+}
+
+#div_is_inner {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	min-height: 160px;
+	background: rgba(255,255,255,.75)
+}
+
+.div_is_typed {
+	width: 500px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 668;
+	-webkit-overflow-scrolling: touch;
+	padding: 10%;
+	font-size: 1.2em;
+	overflow: scroll;
+	display: none
+}
+
+#div_is_img {
+	width: 100%;
+	max-height: 320px;
+	object-fit: cover;
+	overflow: hidden;
+	margin: 0 0 15px 0;
+	background-color: #fff;
+	border: 15px solid #fff;
+	border-radius: 3px;
+	display: block
+}
+
+#div_is_img img {
+	width: 100%;
+	height: 16rem;
+}
+
+.div_is_open_bg {
+	width: 500px;
+	display: block;
+	background-color: rgba(255,255,255,.78);
+	position: fixed;
+	z-index: 669;
+	height: 100%
+}
+
+.div_is_open_btn {
+	width: 100px;
+	height: 54px;
+	margin: 200px auto;
+	border-radius: 3px;
+	overflow: hidden;
+	-moz-box-shadow: 0 0 10px #999;
+	-webkit-box-shadow: 0 0 10px #999;
+	box-shadow: 0 0 10px #999;
+	animation-name: heartbeat;
+	animation-duration: 2s;
+	animation-timing-function: cubic-bezier(0,0,0,1.74);
+	animation-delay: .5s;
+	animation-iteration-count: infinite;
+	animation-play-state: running
+}
+
+@keyframes heartbeat {
+	0% {
+		transform: scale(.95)
+	}
+
+	100% {
+		transform: scale(.95)
+	}
+
+	50% {
+		transform: scale(1)
+	}
+}
