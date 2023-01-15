@@ -177,7 +177,8 @@
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
         minutes) / seconds)
      
-     if(todayMonth==1){document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!"}
+     if(todayMonth==1){if(todayDate<=20){document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!"}}
+	else{document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！"}
 }
 time()
 </script>
