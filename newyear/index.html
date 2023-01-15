@@ -97,7 +97,7 @@ var _hmt = _hmt || [];
 
         <div class="stage-container remove">
         <div class="page_two hide">
-            <div id="text" style="display:none;">岁未将至 平安喜乐 2023万事如意🧨
+            <div id="text" style="display:none;">倒计时<br><br><span id="time"></span><br>岁未将至 平安喜乐 2023万事如意🧨
 <br>唯愿烟花像星辰   祝你所愿皆成真🧨
 <br><br>你是第<span id="busuanzi_value_page_pv"></span>个观赏到烟花的人</div><!--此处已进行修改，优化了倒计时-->
             <div class="type_words" id="contents" style="font-size:1.08rem;line-height:1.5rem;"></div>
@@ -348,9 +348,8 @@ var _hmt = _hmt || [];
     var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
         minutes) / seconds)
-     if(todayMonth==1){if(todayDate==1){document.getElementById("text1").innerHTML =  "现在是1月1日,祝你"+todayYear+"新年快乐！"}}
-     else{document.getElementById("text1").innerHTML =  "提前祝你"+newYear+"新年快乐"}
-     //document.getElementById("time").innerHTML =  diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒"+newYear
+      if(todayMonth==1){if(todayDate<=20){document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!"}}
+	else{document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！"}
 }
 time()
 </script>
