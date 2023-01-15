@@ -2,6 +2,4 @@
 
 ## Happy new year!
 
-## We're preparing for a new project
-
-## Coming soon
+## The project is on corestudi0.github.io/newyear/2023
