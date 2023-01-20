@@ -338,6 +338,8 @@ function TimeDown(id, endDateStr) {
 	}else{
 		text = days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
 	}
+	
+	log("时间：" + text)
     
 	//时间判断
 	var time_now = new Date().getTime();
