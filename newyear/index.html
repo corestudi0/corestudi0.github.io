@@ -332,7 +332,7 @@ var _hmt = _hmt || [];
     var todayHour = today.getHours()
     var todayMinute = today.getMinutes()
     var todaySecond = today.getSeconds()
-    var t1 = Date.UTC(newYear, 1, 22, 0, 00, 00)
+    var t1 = Date.UTC(newYear, 1, 21, 0, 00, 00)
     var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
     var diff = t1 - t2
     var diff2 = t2-t1
@@ -348,8 +348,17 @@ var _hmt = _hmt || [];
     var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
         minutes) / seconds)
-      if(todayMonth==1){if(todayDate<=21){document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!"}}
-	else{document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！"}
+    if(todayMonth==1){
+	if(todayDate<21){
+	    document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕啦!"
+	}else if(todayDate==21){
+	    document.getElementById("time").innerHTML =  "除夕快乐~"
+	}else{
+	      document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！"
+        }
+    }else{
+	document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！"
+    }
 }
 time()
 </script>
