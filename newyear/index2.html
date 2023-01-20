@@ -313,9 +313,67 @@ var _hmt = _hmt || [];
 
 <script>
 
+function TimeDown(id, endDateStr) {
+    //结束时间
+    var endDate = new Date(endDateStr);
+    //当前时间
+    var nowDate = new Date();
+    //相差的总秒数
+    var totalSeconds = parseInt((endDate - nowDate) / 1000);
+    //天数
+    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+    //取模（余数）
+    var modulo = totalSeconds % (60 * 60 * 24);
+    //小时数
+    var hours = Math.floor(modulo / (60 * 60));
+    modulo = modulo % (60 * 60);
+    //分钟
+    var minutes = Math.floor(modulo / 60);
+    //秒
+    var seconds = modulo % 60;
+    //输出到页面
+	
+	if(days < 1){
+		text = hours + "小时" + minutes + "分钟" + seconds + "秒";
+	}else{
+		text = days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+	}
+    
+	//时间判断
+	var time_now = new Date().getTime();
+	var time_chuxi = new Date('2023-01-21 00:00:00').getTime();
+	var time_chunjie = new Date('2023-01-22 00:00:00').getTime();
+	console.log(time_now + "\n" + time_chuxi );
+	if(time_now < time_chuxi){
+		console.log("还没到除夕");
+		document.getElementById(id).innerHTML = "还有" + text + "就是除夕啦!";
+		
+		//延迟一秒执行自己
+		setTimeout(function () {
+			TimeDown(id, '2023-01-21 00:00:00');
+		}, 1000)
+	}else if(time_now > time_chuxi && time_now < time_chunjie){
+		console.log("到除夕啦~");
+		document.getElementById(id).innerHTML = "今天是除夕，还有" + text + "就是春节啦！";
+		if($("#audioDom").attr('src') != 'https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/1274ad0ead904bcfbd556acc4eaeff2e'){
+			$("#audioDom").attr('src','https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/1274ad0ead904bcfbd556acc4eaeff2e');
+		}
+		//延迟一秒执行自己
+		setTimeout(function () {
+			TimeDown(id, '2023-01-22 00:00:00');
+		}, 1000)
+	}else{
+		console.log("到春节啦~");
+		document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！";
+		if($("#audioDom").attr('src') != 'https://sf86-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/b4baa64585924b568460f6887abfdf30'){
+			$("#audioDom").attr('src','https://sf86-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/b4baa64585924b568460f6887abfdf30');
+		}
+	}
+}
 
+TimeDown('time', '2023-01-21 00:00:00');
 
-
+/*
 function time() {
     //window.setTimeout("time()", 1000);
     var seconds = 1000
@@ -349,11 +407,7 @@ function time() {
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
         minutes) / seconds)
 		
-    /*
-	if(todayMonth==1){if(todayDate<=21){document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!"}}
-	else{document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！"}
-	*/
-	
+
 	
 	//时间判断
 	var time_now = new Date().getTime();
@@ -379,7 +433,9 @@ function time() {
 	
 }
 time()
-  
+*/
+	
+	
 //var time_chuxi = new Date('2023-01-21 00:00:00').getTime();
 
   
