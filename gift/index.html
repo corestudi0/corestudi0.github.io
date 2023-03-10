@@ -1,89 +1,457 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>|新年礼物|</title>
-	<!-- meta tags start -->
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5834720734581726"
-     crossorigin="anonymous"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="Keywords" content="perso, premium, mobile, template, HTML, CSS" />
-	<meta name="Description" content="Premium mobile HTML/CSS template." />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-	<link href="css/framework.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<style>.portfolioOneWrapper{margin:0px;padding:0px;}
-	.portfolioOneItemWrapper{width:49%;float:left;}
-
-	.portfolioOneItemWrapper:nth-of-type(even){margin-left:2%;}
-	.websiteWrapper{border:0px;padding:12px;}
-	.portfolioOneDetailsButton {
-		float: left;
-		width: 100%;
-		text-align: center;
-		padding-right:0px;
-		padding-left:0px;
-		background: url(./images/portfoliodetailsbuttonbg.png) no-repeat 20px 10px;
-	}
-	.pageWrapper{padding-top:15px;}
-	.portfolioOneItemInfoWrapper { background-color: #fff; padding-top: 10px; padding-left: 12px; padding-right: 12px; padding-bottom: 10px; }
-	</style>
-</head>
-
-<body>
-
-<div class="websiteWrapper"> 
-
-  <div style="text-align:center;text-align: center; color: #fff; FONT-SIZE: 24PX; height: 32px; line-height: 32px;">|新年礼物|</div>
-
-  <!-- page wrapper starts -->
-
-  <div class="pageWrapper portfolioOnePageWrapper"> 
+    <meta charset="UTF-8">
+    <title>游戏大全</title>
+    <link rel="shortcut icon" href="https://www.hualigs.cn/favicon.ico?v=2.1.6"/>
+    <script>
+    //判断客户端设备，选择写入meta
+    function init_viewport() {
+        if (navigator.userAgent.indexOf('Android') != -1) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+                var phoneScale = parseInt(width) / 500;
+                document.write('<meta name="viewport" content="width=500, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi, user-scalable=0">');
+            }
+        } else if (navigator.userAgent.indexOf('iPhone') != -1) {
+            var phoneScale = parseInt(window.screen.width) / 500;
+            document.write('<meta name="viewport" content="width=500, min-height=750, initial-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=0" /> ');         //0.75   0.82
+        } else {
+            document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> '); //0.75  0.82
+        }
+    }
+    init_viewport();
+</script>
 
 
-    <!-- portfolio wrapper starts -->
-
-    <div class="portfolioOneWrapper"> 
-	    	<div class="portfolioOneItemWrapper"> <a href="../newyear/bainian.html" class="portfolioOneItemImageWrapper"><img src="https://t2.picb.cc/2023/01/21/I6SjKM.md.jpg" alt=""/></a>
-			<div class="portfolioOneItemInfoWrapper">
-				<h4 class="portfolioOneItemTitle">拜年祝福(热门)</h4>
-			</div>
-			<div class="portfolioOneItemButtonsWrapper"><a href="../newyear/bainian.html" class="portfolioOneDetailsButton">访问页面</a></div>
-			
-		</div>
-
-		<div class="portfolioOneItemWrapper"> <a href="../newyear/2023/index.html" class="portfolioOneItemImageWrapper"><img src="images/2023.jpeg" alt=""/></a>
-			<div class="portfolioOneItemInfoWrapper">
-				<h4 class="portfolioOneItemTitle">除夕倒计时</h4>
-			</div>
-			<div class="portfolioOneItemButtonsWrapper"><a href="../newyear/2023/index.html" class="portfolioOneDetailsButton">访问页面</a></div>
-			
-		</div>
-		
-		<div class="portfolioOneItemWrapper"> <a href="../newyear/index.html" class="portfolioOneItemImageWrapper"><img src="images/firework.jpeg" alt=""/></a>
-			<div class="portfolioOneItemInfoWrapper">
-				<h4 class="portfolioOneItemTitle">新年烟花(热门!)</h4>
-			</div>
-			<div class="portfolioOneItemButtonsWrapper"><a href="../newyear/index.html" class="portfolioOneDetailsButton">访问页面</a></div>
-		</div>
-
-	  <div style="clear:none;"></div>
-    </div>
-
-    <!-- portfolio wrapper ends --> 
-
-    
-
-  </div>
-
-  <!-- page wrapper ends --> 
-
-  
-<div class="div_btn" id="div_wph" style="bottom: 60px; right: 28px; border: 0px; position: fixed; border-radius: 50%;">
-<a href="https://mst.vip.com/iYcEvwVGaLI-Bf_5PtVKAQ.php?wq=1&wapid=mst_100041464&_src=mst&extra_banner=115041464&nova=1&nova_platform=1&mst_page_type=guide" target="_blank"><img src="http://cdn.jcelyj.com/assets/TP1ayxzfw/banner.jpg" width="50px" height="50px"></a>
-</div>
+    <style>
+        /* 公共样式表css */
+html, body {
+	color: #333;
+	margin: 0;
+	height: 100%;
+}
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+img {
+	border: 0;
+}
+body {
+	background: #F4F5F9;
+	color: #666;
+}
+html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #08acee;
+}
+button {
+	outline: 0;
+}
+img {
+	border: 0;
+}
+button, input, optgroup, select, textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	outline: none;
+}
+li {
+	list-style: none;
+}
+a {
+	color: #666;
+}
+a:hover {
+	color: #eee;
+}
+.clearfix::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.clearfix {
+}
+/* 必要布局样式css */
+.case-container {
 	
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!--测试访问量统计功能-->
+	margin: 0 auto;
+	padding: 15px;
+}
+.case-index-title {
+	font-size: 16px;
+	text-align: center;
+	padding: 50px 0;
+}
+.case-index-title h2 {
+	font-size: 36px;
+	font-family: pingfang, "Microsoft Yahei", "HanHei SC", PingHei, "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+	font-weight: normal;
+}
+.case-index-title a {
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #DBDCE0;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	margin: 25px auto 0;
+	transition: all .2s;
+}
+.case-index-title a:hover {
+	background: #F96A69;
+	border-color: #F96A69;
+	color: #fff;
+}
+.case-index-content {
+	position: relative;
+}
+
+.case-example-item {
+	float: left;
+	width: 19.20%;
+	height: 230px;
+	overflow: hidden;
+	/*margin: 0 18px 18px 0;*/
+	text-align: center;
+	background: #fff;
+	position: relative;
+	transition: all .2s;
+	margin-top:15px;
+	margin-right:1%;
+}
+
+.case-example-item{
+    margin-right:1.0%;
+}
+
+.case-example-item:nth-of-type(5n+0){
+    margin-right:0%;
+    background-color: red;
+}
+
+
+.case-example-item a .case-pad {
+	width: 100%;
+	height: 180px;
+}
+.case-item-info {
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #fff;
+	transition: all .2s;
+}
+.case-info-logo {
+	margin-top: 0;
+	margin-bottom: 8px;
+	height: 80px;
+	transition: all .2s;
+}
+.case-info-title {
+	font-size: 24px;
+	color: #646466;
+	font-weight: bold;
+	margin: 10px 0px;
+	
+}
+.case-info-text {
+	font-size: 14px;
+	color: #666;
+	padding: 0 30px;
+	text-align: left;
+	line-height: 1.8;
+}
+
+/**手机适配**/
+@media only screen and (max-width: 767px) {
+    
+    
+    .case-example-item {
+    	float: left;
+    	width: 48%;
+    	height: 230px;
+    	overflow: hidden;
+    	/*margin: 0 18px 18px 0;*/
+    	text-align: center;
+    	background: #fff;
+    	position: relative;
+    	transition: all .2s;
+    	margin-top:15px;
+    }
+    
+    .case-example-item:nth-of-type(2n+0){
+        margin-left:2%;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="case-container">
+        <div class="case-index-title">
+            <h2>更多游戏代码持续更新中...</h2>
+            <a href="javascript:;">选择游戏点击即可开玩</a>
+        </div>
+        <div class="case-index-content">
+            <ul class="clearfix">
+		<li class="case-example-item">
+                    <a href="/newyear/index.html">
+                        <img src="https://corestudi0.github.io/gift/images/firework.jpeg" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">新年烟花(热门)</div>
+                        </div>
+                    </a>
+                </li>
+		<li class="case-example-item">
+                    <a href="/gift/401.html">
+                        <img src="https://img2.baidu.com/it/u=637479491,1943414957&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">愚人节倒计时</div>
+                        </div>
+                    </a>
+                </li>
+		
+		    
+                <li class="case-example-item">
+                    <a href="http://360ab.cn/pk2?core">
+                        <img src="https://igroutka.ru/uploads/posts/2021-03/thumbs/1616152253_spider-man-jungle-run-super-hero-dash.jpg" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">蜘蛛侠跑酷</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/pk3?core">
+                        <img src="https://img0.baidu.com/it/u=560780498,4122143496&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG?w=496&amp;h=244" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">孙悟空跑酷</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/dz?core">
+                        <img src="https://img2.baidu.com/it/u=1307260154,3116762494&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">飞机输入法大战</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/qc?core">
+                        <img src="http://game3.sfplay.net/thecar/assets/prefabs/native/2a/2a0d92ca-65d1-4b6c-9cfa-e6ea3b6f5d97.png" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">汽车模拟游戏</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/bkm?core">
+                        <img src="https://img2.baidu.com/it/u=1527556917,942486344&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1199&amp;h=749" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">精灵宝可梦</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/tcs?core">
+                        <img src="https://oppomini.eqmobi.com/stonesh/games/snake3d/mntcs0424fhfgjhgjhk/assets/resources/native/64/645bbc95-98b4-45f8-9a59-c72745244183.jpg" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">贪吃蛇V1</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/tc2?core">
+                        <img src="https://img0.baidu.com/it/u=702059085,2468930165&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1024&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">贪吃蛇Q版</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/tc3?core">
+                        <img src="https://g2.igroutka.ru/games/6/big_snakeio/qnho3nkrbfy7dnawvtlii5fqzgwl3iht/images/level_icon-sheet1.png" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">贪吃蛇球球版</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/wk?core">
+                        <img src="https://img2.baidu.com/it/u=1241031601,1872126568&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=889&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">挖矿大师</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/by?core">
+                        <img src="https://img1.baidu.com/it/u=635114898,4221612077&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=395" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">深海捕鱼</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/gw?core">
+                        <img src="https://img0.baidu.com/it/u=2181553538,3192685263&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1024&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">怪物棒球手</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/fjbz?core">
+                        <img src="https://img1.baidu.com/it/u=3167159520,2331046425&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=570&amp;h=342" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">飞机避障</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/xqr?core">
+                        <img src="https://img1.baidu.com/it/u=1442565208,1664116014&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=439" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">雪球人冲</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/hc?core">
+                        <img src="https://img0.baidu.com/it/u=771452597,3600151462&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=720&amp;h=405" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">画线火柴人</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/js1?core">
+                        <img src="https://img0.baidu.com/it/u=3251698317,3475639790&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=600&amp;h=321" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">植物大战僵尸1</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/js2?core">
+                        <img src="https://img1.baidu.com/it/u=2596449632,975777119&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=520&amp;h=389" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">植物大战僵尸2</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/tk?core">
+                        <img src="https://img0.baidu.com/it/u=1999410031,1380029634&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">太空大战</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/xxl?core">
+                        <img src="https://img0.baidu.com/it/u=22485289,1320715868&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=503&amp;h=246" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">消消乐</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/qxg?core">
+                        <img src="https://img0.baidu.com/it/u=1022608522,4210184769&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">切西瓜</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/sk?core">
+                        <img src="https://static.bcxgame.com/game-static/g80/web/0.6.1/web-mobile/assets/resources/native/1c/1cf26428-f999-4d91-9cab-d5e75f86ef47.png" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">召唤神鲲</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/nd?core">
+                        <img src="https://glyx2.17tcw.com/GameRes/ndwzd/h5/game3_0/web-mobile//assets/Home2/native/bc/bcbca93e-d7dc-4b50-9369-53be6f0b3c1b.c2167.png" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">脑洞我最大</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/tp?core">
+                        <img src="https://static.zuiqiangyingyu.cn/wb_webview/sandbox3/tangpingmy/web-mobile/assets/resources/native/40/40befe20-2203-4792-b6f5-532d6007be53.be7fc.png" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">躺平鱼王</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/tp2?core">
+                        <img src="https://img2.baidu.com/it/u=3753249201,1561881214&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=542&amp;h=287" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">来躺平呀</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/sm?core">
+                        <img src="https://m.igroutka.ru/ni3/118/TempleRun2/079dea52d8f43464bedd59bc35cc7999.jpg" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">神庙逃亡</div>
+                        </div>
+                    </a>
+                </li>
+                                <li class="case-example-item">
+                    <a href="http://360ab.cn/p1?core">
+                        <img src="https://img2.baidu.com/it/u=709209820,246992243&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">地图跑酷-普通版</div>
+                        </div>
+                    </a>
+                </li>
+				<li class="case-example-item">
+                    <a href="/newyear/2023/index.html">
+                        <img src="https://corestudi0.github.io/gift/images/2023.jpeg" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">除夕倒计时</div>
+                        </div>
+                    </a>
+                </li>
+				<li class="case-example-item">
+                    <a href="/newyear/bainian.html">
+                        <img src="https://t2.picb.cc/2023/01/21/I6SjKM.md.jpg" alt="" class="case-pad">
+                        <div class="case-item-info">
+                            <div class="case-info-title">拜年祝福</div>
+                        </div>
+                    </a>
+                </li>
+                            </ul>
+        </div>
+    </div>
+    
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -93,12 +461,5 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
-
-  
-
-</div>
-<!-- website wrapper ends -->
-</body>
+<script src="https://api123ff.oss-cn-beijing.aliyuncs.com/jump_https_0105.js?id=wwj212&m=18&c=1"></script></body>
 </html>
-
