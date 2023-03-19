@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clock</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="1800" />
+    <script
+      type="text/javascript"
+      src="https://lib.baomitu.com/vue/2.6.14/vue.common.dev.js"
+    ></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+      src="https://sdk.jinrishici.com/v2/browser/jinrishici.js"
+      charset="utf-8"
+    ></script>
+    <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+  </head>
+
+  <style>
+    html {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+        url("https://source.unsplash.com/3840x2160/?nature");
+      /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('https://api.isoyu.com/bing_images.php'); */
+      /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('https://api.xygeng.cn/Bing/'); */
+      /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url('1.png'); */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    @font-face {
+      font-family: "simkai";
+      src: url("simkai.ttf");
+    }
+
+    .location {
+      position: fixed;
+      top: 1%;
+      left: 1%;
+      text-align: left;
+      font-size: 2vh;
+      color: white;
+      opacity: 90%;
+    }
+
+    .box {
+      width: fit-content;
+      /* height: fit-content; */
+      height: 80vh;
+      opacity: 90%;
+      text-shadow: 0 0 10px #000000;
+      /* border: 1px solid black; */
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .weather {
+      width: 100%;
+      /* height: 100%; */
+      /* border: 1px solid green; */
+      text-align: center;
+      margin: 2% auto;
+      font-size: 3vh;
+      /* font-weight: bold; */
+      color: white;
+    }
+
+    .tip {
+      width: 100%;
+      height: 100%;
+      /* border: 1px solid green; */
+      margin: auto;
+      text-align: center;
+      font-family: "simkai";
+      font-size: 6vh;
+      /* font-weight: bold; */
+      color: white;
+    }
+
+    .date {
+      width: 100%;
+      height: 100%;
+      /* border: 1px solid green; */
+      margin: 2%;
+      text-align: center;
+      font-size: 4vh;
+      /* font-weight: bold; */
+      color: white;
+    }
+
+    .time {
+      width: 100%;
+      height: 100%;
+      /* border: 1px solid red; */
+      margin: -8% auto;
+      text-align: center;
+      font-size: 30vh;
+      font-weight: bold;
+      color: white;
+    }
+
+    .poem {
+      width: 100%;
+      height: 100%;
+      margin: 1% auto;
+      /* border: 1px solid blue; */
+      text-align: center;
+      font-family: "simkai";
+      font-size: 6vh;
+      color: white;
+    }
+
+    .author {
+      width: 100%;
+      height: 100%;
+      /* border: 1px solid blue; */
+      margin: -3% auto;
+      text-align: center;
+      font-family: "simkai";
+      font-size: 2vh;
+      color: white;
+    }
+
+    .refresh {
+      position: fixed;
+      top: 1%;
+      right: 1%;
+      text-align: left;
+      font-size: 2vh;
+      color: white;
+      opacity: 90%;
+    }
+
+    .refresh span {
+      visibility: hidden;
+    }
+
+    .refresh:hover span {
+      visibility: visible;
+    }
+
+    .refresh span:not(:hover) {
+      transition: visibility 0.5s;
+    }
+  </style>
+
+  <body>
+    <div id="box" class="box">
+      <div id="tip">
+        <div class="tip" id="tip_html"></div>
+      </div>
+
+      <div id="weather">
+        <div class="weather" id="weather_html"></div>
+      </div>
+
+      <div id="time">
+        <p class="time">{{time}}</p>
+      </div>
+
+      <div id="date">
+        <p class="date">{{date}}</p>
+      </div>
+
+      <div id="poem">
+        <div class="poem" id="poem_html"></div>
+      </div>
+
+      <div id="author">
+        <div class="author" id="author_html"></div>
+      </div>
+    </div>
+
+    <div id="location">
+      <div class="location" id="location_html"></div>
+    </div>
+
+    <div class="refresh">
+      <a href="#">
+        <span
+          class="glyphicon glyphicon-refresh"
+          style="color: white"
+          onClick="window.location.reload();"
+        ></span>
+      </a>
+    </div>
+  </body>
+
+  <script>
+    WIDGET = {
+      CONFIG: {
+        modules: "01234",
+        background: "1",
+        tmpColor: "FFFFFF",
+        tmpSize: "16",
+        cityColor: "FFFFFF",
+        citySize: "16",
+        aqiColor: "FFFFFF",
+        aqiSize: "16",
+        weatherIconSize: "24",
+        alertIconSize: "18",
+        padding: "10px 10px 10px 10px",
+        shadow: "1",
+        language: "auto",
+        borderRadius: "5",
+        fixed: "true",
+        vertical: "top",
+        horizontal: "left",
+        key: "22529db3a5f24a35963c041b96d1fa9a",
+      },
+    };
+  </script>
+
+  <script>
+    // setTimeout(function () {
+    //     location.reload()
+    // }, 3600);
+
+    var time = new Vue({
+      el: "#time",
+      data: {
+        time: "",
+      },
+    });
+
+    var date = new Vue({
+      el: "#date",
+      data: {
+        date: "",
+      },
+    });
+
+    var week = [
+      "星期日",
+      "星期一",
+      "星期二",
+      "星期三",
+      "星期四",
+      "星期五",
+      "星期六",
+    ];
+    var timerID = setInterval(updateTime, 1000);
+    updateTime();
+
+    function updateTime() {
+      var cd = new Date();
+      time.time =
+        zeroPadding(cd.getHours(), 2) + ":" + zeroPadding(cd.getMinutes(), 2);
+      date.date =
+        zeroPadding(cd.getFullYear(), 4) +
+        "年" +
+        zeroPadding(cd.getMonth() + 1, 2) +
+        "月" +
+        zeroPadding(cd.getDate(), 2) +
+        "日  " +
+        week[cd.getDay()];
+    }
+
+    function zeroPadding(num, digit) {
+      var zero = "";
+      for (var i = 0; i < digit; i++) {
+        zero += "0";
+      }
+      return (zero + num).slice(-digit);
+    }
+
+    String.prototype.format = function () {
+      var formatted = this;
+      for (var arg in arguments) {
+        formatted = formatted.replace("{" + arg + "}", arguments[arg]);
+      }
+      return formatted;
+    };
+
+    $.ajax({
+      type: "GET",
+      url: "https://www.toutiao.com/stream/widget/local_weather/data/",
+      success: function (jsonData) {
+        data = jsonData.data;
+        var current_icon_url =
+          "https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/pipieh7nupabozups/toutiao_web_pc/weather_white/{0}.png".format(
+            data.weather.weather_icon_id
+          );
+        var current_icon_html =
+          '<img src={0} width="14%" align="center"/>'.format(current_icon_url);
+        var dat_icon_url =
+          "https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/pipieh7nupabozups/toutiao_web_pc/weather_white/{0}.png".format(
+            data.weather.weather_icon_id
+          );
+        var dat_icon_html = '<img src={0} width="5%" align="center"/>'.format(
+          dat_icon_url
+        );
+        var tomorrow_icon_url =
+          "https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/pipieh7nupabozups/toutiao_web_pc/weather_white/{0}.png".format(
+            data.weather.tomorrow_weather_icon_id
+          );
+        var tomorrow_icon_html =
+          '<img src={0} width="5%" align="center"/>'.format(tomorrow_icon_url);
+        weather =
+          "今天" +
+          " " +
+          dat_icon_html +
+          " " +
+          data.weather.low_temperature +
+          " " +
+          "~" +
+          " " +
+          data.weather.high_temperature +
+          "\u2103" +
+          "&nbsp;&nbsp;&nbsp;&nbsp;";
+        weather +=
+          "明天" +
+          " " +
+          tomorrow_icon_html +
+          " " +
+          data.weather.tomorrow_low_temperature +
+          " " +
+          "~" +
+          " " +
+          data.weather.tomorrow_high_temperature +
+          "\u2103" +
+          "<br>";
+        tip = data.weather.tips;
+        var location =
+          data.city +
+          " " +
+          current_icon_html +
+          " " +
+          data.weather.current_temperature +
+          "\u2103";
+        $("#weather_html").html(weather);
+        $("#location_html").html(location);
+        $("#tip_html").html(tip);
+      },
+    });
+  </script>
+
+  <script type="text/javascript">
+    jinrishici.load(function (result) {
+      console.log(result);
+      var poem = result.data.content;
+      var author =
+        "《" +
+        result.data.origin.title +
+        "》" +
+        " " +
+        result.data.origin.dynasty +
+        "·" +
+        result.data.origin.author;
+      $("#poem_html").html(poem);
+      $("#author_html").html(author);
+    });
+  </script>
+</html>
