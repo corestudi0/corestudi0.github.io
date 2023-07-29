@@ -1,457 +1,686 @@
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>游戏大全</title>
-    <link rel="shortcut icon" href="https://www.hualigs.cn/favicon.ico?v=2.1.6"/>
-    <script>
-    //判断客户端设备，选择写入meta
-    function init_viewport() {
-        if (navigator.userAgent.indexOf('Android') != -1) {
-            var version = parseFloat(RegExp.$1);
-            if (version > 2.3) {
-                var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
-                var phoneScale = parseInt(width) / 500;
-                document.write('<meta name="viewport" content="width=500, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
-            } else {
-                document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi, user-scalable=0">');
-            }
-        } else if (navigator.userAgent.indexOf('iPhone') != -1) {
-            var phoneScale = parseInt(window.screen.width) / 500;
-            document.write('<meta name="viewport" content="width=500, min-height=750, initial-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=0" /> ');         //0.75   0.82
-        } else {
-            document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> '); //0.75  0.82
-        }
-    }
-    init_viewport();
-</script>
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="favicon" href="favicon.ico">
+    <title>游戏代码库</title>
+	<link href="https://ai8.top/static/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://ai8.top/template/games/css/main.css?v1.0.0" rel="stylesheet">
     <style>
-        /* 公共样式表css */
-html, body {
-	color: #333;
-	margin: 0;
-	height: 100%;
-}
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-a {
-	text-decoration: none;
-	color: #000;
-}
-img {
-	border: 0;
-}
-body {
-	background: #F4F5F9;
-	color: #666;
-}
-html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
-	margin: 0;
-	padding: 0;
-}
-a {
-	text-decoration: none;
-	color: #08acee;
-}
-button {
-	outline: 0;
-}
-img {
-	border: 0;
-}
-button, input, optgroup, select, textarea {
-	margin: 0;
-	font: inherit;
-	color: inherit;
-	outline: none;
-}
-li {
-	list-style: none;
-}
-a {
-	color: #666;
-}
-a:hover {
-	color: #eee;
-}
-.clearfix::after {
-	clear: both;
-	content: ".";
-	display: block;
-	height: 0;
-	visibility: hidden;
-}
-.clearfix {
-}
-/* 必要布局样式css */
-.case-container {
-	
-	margin: 0 auto;
-	padding: 15px;
-}
-.case-index-title {
-	font-size: 16px;
-	text-align: center;
-	padding: 50px 0;
-}
-.case-index-title h2 {
-	font-size: 36px;
-	font-family: pingfang, "Microsoft Yahei", "HanHei SC", PingHei, "PingFang SC", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
-	font-weight: normal;
-}
-.case-index-title a {
-	width: 100%;
-	height: 36px;
-	line-height: 36px;
-	border: 1px solid #DBDCE0;
-	text-align: center;
-	font-size: 16px;
-	display: block;
-	margin: 25px auto 0;
-	transition: all .2s;
-}
-.case-index-title a:hover {
-	background: #F96A69;
-	border-color: #F96A69;
-	color: #fff;
-}
-.case-index-content {
-	position: relative;
-}
-
-.case-example-item {
-	float: left;
-	width: 19.20%;
-	height: 230px;
-	overflow: hidden;
-	/*margin: 0 18px 18px 0;*/
-	text-align: center;
-	background: #fff;
-	position: relative;
-	transition: all .2s;
-	margin-top:15px;
-	margin-right:1%;
-}
-
-.case-example-item{
-    margin-right:1.0%;
-}
-
-.case-example-item:nth-of-type(5n+0){
-    margin-right:0%;
-    background-color: red;
-}
-
-
-.case-example-item a .case-pad {
-	width: 100%;
-	height: 180px;
-}
-.case-item-info {
-	overflow: hidden;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #fff;
-	transition: all .2s;
-}
-.case-info-logo {
-	margin-top: 0;
-	margin-bottom: 8px;
-	height: 80px;
-	transition: all .2s;
-}
-.case-info-title {
-	font-size: 24px;
-	color: #646466;
-	font-weight: bold;
-	margin: 10px 0px;
-	
-}
-.case-info-text {
-	font-size: 14px;
-	color: #666;
-	padding: 0 30px;
-	text-align: left;
-	line-height: 1.8;
-}
-
-/**手机适配**/
-@media only screen and (max-width: 767px) {
-    
-    
-    .case-example-item {
-    	float: left;
-    	width: 48%;
-    	height: 230px;
-    	overflow: hidden;
-    	/*margin: 0 18px 18px 0;*/
-    	text-align: center;
-    	background: #fff;
-    	position: relative;
-    	transition: all .2s;
-    	margin-top:15px;
-    }
-    
-    .case-example-item:nth-of-type(2n+0){
-        margin-left:2%;
-    }
-}
+        .content-top ul li{font-weight: 600;}
+        .content-top ul li p{text-align:left;margin:0px;}
     </style>
 </head>
-<body>
-    <div class="case-container">
-        <div class="case-index-title">
-            <h2>更多游戏代码持续更新中...</h2>
-            <a href="javascript:;">选择游戏点击即可开玩</a>
-        </div>
-        <div class="case-index-content">
-            <ul class="clearfix">
-		<li class="case-example-item">
-                    <a href="/newyear/index.html">
-                        <img src="https://corestudi0.github.io/gift/images/firework.jpeg" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">新年烟花(热门)</div>
-                        </div>
-                    </a>
-                </li>
-		<li class="case-example-item">
-                    <a href="/gift/401.html">
-                        <img src="https://img2.baidu.com/it/u=637479491,1943414957&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">愚人节倒计时</div>
-                        </div>
-                    </a>
-                </li>
-		
-		    
-                <li class="case-example-item">
-                    <a href="http://360ab.cn/pk2?core">
-                        <img src="https://igroutka.ru/uploads/posts/2021-03/thumbs/1616152253_spider-man-jungle-run-super-hero-dash.jpg" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">蜘蛛侠跑酷</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/pk3?core">
-                        <img src="https://img0.baidu.com/it/u=560780498,4122143496&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG?w=496&amp;h=244" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">孙悟空跑酷</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/dz?core">
-                        <img src="https://img2.baidu.com/it/u=1307260154,3116762494&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">飞机输入法大战</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/qc?core">
-                        <img src="http://game3.sfplay.net/thecar/assets/prefabs/native/2a/2a0d92ca-65d1-4b6c-9cfa-e6ea3b6f5d97.png" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">汽车模拟游戏</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/bkm?core">
-                        <img src="https://img2.baidu.com/it/u=1527556917,942486344&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=1199&amp;h=749" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">精灵宝可梦</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/tcs?core">
-                        <img src="https://oppomini.eqmobi.com/stonesh/games/snake3d/mntcs0424fhfgjhgjhk/assets/resources/native/64/645bbc95-98b4-45f8-9a59-c72745244183.jpg" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">贪吃蛇V1</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/tc2?core">
-                        <img src="https://img0.baidu.com/it/u=702059085,2468930165&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1024&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">贪吃蛇Q版</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/tc3?core">
-                        <img src="https://g2.igroutka.ru/games/6/big_snakeio/qnho3nkrbfy7dnawvtlii5fqzgwl3iht/images/level_icon-sheet1.png" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">贪吃蛇球球版</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/wk?core">
-                        <img src="https://img2.baidu.com/it/u=1241031601,1872126568&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=889&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">挖矿大师</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/by?core">
-                        <img src="https://img1.baidu.com/it/u=635114898,4221612077&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=395" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">深海捕鱼</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/gw?core">
-                        <img src="https://img0.baidu.com/it/u=2181553538,3192685263&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1024&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">怪物棒球手</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/fjbz?core">
-                        <img src="https://img1.baidu.com/it/u=3167159520,2331046425&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=570&amp;h=342" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">飞机避障</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/xqr?core">
-                        <img src="https://img1.baidu.com/it/u=1442565208,1664116014&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=439" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">雪球人冲</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/hc?core">
-                        <img src="https://img0.baidu.com/it/u=771452597,3600151462&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=720&amp;h=405" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">画线火柴人</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/js1?core">
-                        <img src="https://img0.baidu.com/it/u=3251698317,3475639790&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=600&amp;h=321" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">植物大战僵尸1</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/js2?core">
-                        <img src="https://img1.baidu.com/it/u=2596449632,975777119&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=520&amp;h=389" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">植物大战僵尸2</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/tk?core">
-                        <img src="https://img0.baidu.com/it/u=1999410031,1380029634&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">太空大战</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/xxl?core">
-                        <img src="https://img0.baidu.com/it/u=22485289,1320715868&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=503&amp;h=246" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">消消乐</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/qxg?core">
-                        <img src="https://img0.baidu.com/it/u=1022608522,4210184769&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">切西瓜</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/sk?core">
-                        <img src="https://static.bcxgame.com/game-static/g80/web/0.6.1/web-mobile/assets/resources/native/1c/1cf26428-f999-4d91-9cab-d5e75f86ef47.png" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">召唤神鲲</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/nd?core">
-                        <img src="https://glyx2.17tcw.com/GameRes/ndwzd/h5/game3_0/web-mobile//assets/Home2/native/bc/bcbca93e-d7dc-4b50-9369-53be6f0b3c1b.c2167.png" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">脑洞我最大</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/tp?core">
-                        <img src="https://static.zuiqiangyingyu.cn/wb_webview/sandbox3/tangpingmy/web-mobile/assets/resources/native/40/40befe20-2203-4792-b6f5-532d6007be53.be7fc.png" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">躺平鱼王</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/tp2?core">
-                        <img src="https://img2.baidu.com/it/u=3753249201,1561881214&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=542&amp;h=287" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">来躺平呀</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/sm?core">
-                        <img src="https://m.igroutka.ru/ni3/118/TempleRun2/079dea52d8f43464bedd59bc35cc7999.jpg" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">神庙逃亡</div>
-                        </div>
-                    </a>
-                </li>
-                                <li class="case-example-item">
-                    <a href="http://360ab.cn/p1?core">
-                        <img src="https://img2.baidu.com/it/u=709209820,246992243&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">地图跑酷-普通版</div>
-                        </div>
-                    </a>
-                </li>
-				<li class="case-example-item">
-                    <a href="/newyear/2023/index.html">
-                        <img src="https://corestudi0.github.io/gift/images/2023.jpeg" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">除夕倒计时</div>
-                        </div>
-                    </a>
-                </li>
-				<li class="case-example-item">
-                    <a href="/newyear/bainian.html">
-                        <img src="https://t2.picb.cc/2023/01/21/I6SjKM.md.jpg" alt="" class="case-pad">
-                        <div class="case-item-info">
-                            <div class="case-info-title">拜年祝福</div>
-                        </div>
-                    </a>
-                </li>
-                            </ul>
-        </div>
+<body >
+<div id="all">
+    <div class="wrapper">
+        <div class="main">
+			<h1>代码网址已更新</h1>
+			<div class="content">
+				<div class="content-top">				
+						<h2><a href="http://360ab.cn/code?game" style="color:#fff;font-weight:500;">点击进入更多文案代码</a></h2>
+						<h2 id="btn-copy">点击复制最新代码网址</h2>
+						<ul>
+						    <li>
+								2023.07.27<p>
+								<span style="color:#000";>坤坤跳跳乐：<a id="btn-copy" href="javascript:;" onclick="copy_text='坤坤跳跳乐：ai8.top/879';" style="display:inline-block;">ai8.top/879</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>坤坤打篮球：<a id="btn-copy" href="javascript:;" onclick="copy_text='坤坤打篮球：ai8.top/878';" style="display:inline-block;">ai8.top/878</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.25<p>
+								<span style="color:#000";>我的世界：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界：ai8.top/888';" style="display:inline-block;">ai8.top/888</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>装x实时地图：<a id="btn-copy" href="javascript:;" onclick="copy_text='装x实时地图：ai8.top/877';" style="display:inline-block;">ai8.top/877</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.20<p>
+								<span style="color:#000";>蛋仔闯关2.0：<a id="btn-copy" href="javascript:;" onclick="copy_text='蛋仔闯关2.0：ai8.top/876';" style="display:inline-block;">ai8.top/876</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>菜鸟闯关：<a id="btn-copy" href="javascript:;" onclick="copy_text='菜鸟闯关：ai8.top/875';" style="display:inline-block;">ai8.top/875</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>魔法世界：<a id="btn-copy" href="javascript:;" onclick="copy_text='魔法世界：ai8.top/874';" style="display:inline-block;">ai8.top/874</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.19<p>
+								<span style="color:#000";>忍者吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='忍者吃鸡：ai8.top/873';" style="display:inline-block;">ai8.top/873</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>生化吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='生化吃鸡：ai8.top/872';" style="display:inline-block;">ai8.top/872</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>空军吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='空军吃鸡：ai8.top/871';" style="display:inline-block;">ai8.top/871</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>拉斯维加斯吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='拉斯维加斯吃鸡：ai8.top/870';" style="display:inline-block;">ai8.top/870</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>沙漠绿洲-吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='沙漠绿洲-吃鸡：ai8.top/869';" style="display:inline-block;">ai8.top/869</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>农场主吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='农场主吃鸡：ai8.top/868';" style="display:inline-block;">ai8.top/868</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>月球吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='月球吃鸡：ai8.top/867';" style="display:inline-block;">ai8.top/867</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>万圣节吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='万圣节吃鸡：ai8.top/866';" style="display:inline-block;">ai8.top/866</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.18<p>
+								<span style="color:#000";>地道战1（需横屏）：<a id="btn-copy" href="javascript:;" onclick="copy_text='地道战1（需横屏）：ai8.top/865';" style="display:inline-block;">ai8.top/865</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>地道战2（需横屏）：<a id="btn-copy" href="javascript:;" onclick="copy_text='地道战2（需横屏）：ai8.top/864';" style="display:inline-block;">ai8.top/864</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>坤了个坤：<a id="btn-copy" href="javascript:;" onclick="copy_text='坤了个坤：ai8.top/863';" style="display:inline-block;">ai8.top/863</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>击杀史蒂夫：<a id="btn-copy" href="javascript:;" onclick="copy_text='击杀史蒂夫：ai8.top/862';" style="display:inline-block;">ai8.top/862</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>裤衩史蒂夫：<a id="btn-copy" href="javascript:;" onclick="copy_text='裤衩史蒂夫：ai8.top/861';" style="display:inline-block;">ai8.top/861</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>恐惧跑酷：<a id="btn-copy" href="javascript:;" onclick="copy_text='恐惧跑酷：ai8.top/860';" style="display:inline-block;">ai8.top/860</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>太空人机关：<a id="btn-copy" href="javascript:;" onclick="copy_text='太空人机关：ai8.top/859';" style="display:inline-block;">ai8.top/859</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.17<p>
+								<span style="color:#000";>纸上战争：<a id="btn-copy" href="javascript:;" onclick="copy_text='纸上战争：ai8.top/858';" style="display:inline-block;">ai8.top/858</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>模拟交通警察：<a id="btn-copy" href="javascript:;" onclick="copy_text='模拟交通警察：ai8.top/857';" style="display:inline-block;">ai8.top/857</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的世界 吃鸡版：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界 吃鸡版：ai8.top/856';" style="display:inline-block;">ai8.top/856</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>脑洞大开：<a id="btn-copy" href="javascript:;" onclick="copy_text='脑洞大开：ai8.top/855';" style="display:inline-block;">ai8.top/855</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>史蒂夫 狼人杀：<a id="btn-copy" href="javascript:;" onclick="copy_text='史蒂夫 狼人杀：ai8.top/853';" style="display:inline-block;">ai8.top/853</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>复仇者 射击猫：<a id="btn-copy" href="javascript:;" onclick="copy_text='复仇者 射击猫：ai8.top/852';" style="display:inline-block;">ai8.top/852</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.16<p>
+								<span style="color:#000";>救出人质：<a id="btn-copy" href="javascript:;" onclick="copy_text='救出人质：ai8.top/851';" style="display:inline-block;">ai8.top/851</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>解压割韭菜：<a id="btn-copy" href="javascript:;" onclick="copy_text='解压割韭菜：ai8.top/850';" style="display:inline-block;">ai8.top/850</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>贪吃蠕虫：<a id="btn-copy" href="javascript:;" onclick="copy_text='贪吃蠕虫：ai8.top/849';" style="display:inline-block;">ai8.top/849</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>西游梗传：<a id="btn-copy" href="javascript:;" onclick="copy_text='西游梗传：ai8.top/848';" style="display:inline-block;">ai8.top/848</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>吃鸡打野：<a id="btn-copy" href="javascript:;" onclick="copy_text='吃鸡打野：ai8.top/847';" style="display:inline-block;">ai8.top/847</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>生化吃鸡：<a id="btn-copy" href="javascript:;" onclick="copy_text='生化吃鸡：ai8.top/846';" style="display:inline-block;">ai8.top/846</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.15<p>
+								<span style="color:#000";>恐怖躲猫猫：<a id="btn-copy" href="javascript:;" onclick="copy_text='恐怖躲猫猫：ai8.top/845';" style="display:inline-block;">ai8.top/845</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>最强搬运工：<a id="btn-copy" href="javascript:;" onclick="copy_text='最强搬运工：ai8.top/844';" style="display:inline-block;">ai8.top/844</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>坤坤大战俑尸：<a id="btn-copy" href="javascript:;" onclick="copy_text='坤坤大战俑尸：ai8.top/843';" style="display:inline-block;">ai8.top/843</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>鱿鱼游戏-射击：<a id="btn-copy" href="javascript:;" onclick="copy_text='鱿鱼游戏-射击：ai8.top/842';" style="display:inline-block;">ai8.top/842</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>鱿鱼游戏-坠落：<a id="btn-copy" href="javascript:;" onclick="copy_text='鱿鱼游戏-坠落：ai8.top/841';" style="display:inline-block;">ai8.top/841</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.12<p>
+								<span style="color:#000";>太空大逃杀：<a id="btn-copy" href="javascript:;" onclick="copy_text='太空大逃杀：ai8.top/840';" style="display:inline-block;">ai8.top/840</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>怪物射手：<a id="btn-copy" href="javascript:;" onclick="copy_text='怪物射手：ai8.top/839';" style="display:inline-block;">ai8.top/839</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>香肠大乱斗：<a id="btn-copy" href="javascript:;" onclick="copy_text='香肠大乱斗：ai8.top/838';" style="display:inline-block;">ai8.top/838</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>像素射击：<a id="btn-copy" href="javascript:;" onclick="copy_text='像素射击：ai8.top/837';" style="display:inline-block;">ai8.top/837</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>地下城战士：<a id="btn-copy" href="javascript:;" onclick="copy_text='地下城战士：ai8.top/836';" style="display:inline-block;">ai8.top/836</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>别惹农夫：<a id="btn-copy" href="javascript:;" onclick="copy_text='别惹农夫：ai8.top/835';" style="display:inline-block;">ai8.top/835</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>蛋仔闯关：<a id="btn-copy" href="javascript:;" onclick="copy_text='蛋仔闯关：ai8.top/834';" style="display:inline-block;">ai8.top/834</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>心灵控制器：<a id="btn-copy" href="javascript:;" onclick="copy_text='心灵控制器：ai8.top/833';" style="display:inline-block;">ai8.top/833</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>鱿鱼游戏2.0：<a id="btn-copy" href="javascript:;" onclick="copy_text='鱿鱼游戏2.0：ai8.top/832';" style="display:inline-block;">ai8.top/832</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.10<p>
+								<span style="color:#000";>大蓝猫抓史蒂夫：<a id="btn-copy" href="javascript:;" onclick="copy_text='大蓝猫抓史蒂夫：ai8.top/830';" style="display:inline-block;">ai8.top/830</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>城市开发：<a id="btn-copy" href="javascript:;" onclick="copy_text='城市开发：ai8.top/829';" style="display:inline-block;">ai8.top/829</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>史蒂夫地牢逃脱：<a id="btn-copy" href="javascript:;" onclick="copy_text='史蒂夫地牢逃脱：ai8.top/828';" style="display:inline-block;">ai8.top/828</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>击败恶魔：<a id="btn-copy" href="javascript:;" onclick="copy_text='击败恶魔：ai8.top/827';" style="display:inline-block;">ai8.top/827</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>飞扬的直升机：<a id="btn-copy" href="javascript:;" onclick="copy_text='飞扬的直升机：ai8.top/826';" style="display:inline-block;">ai8.top/826</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>多元宇宙大乱斗：<a id="btn-copy" href="javascript:;" onclick="copy_text='多元宇宙大乱斗：ai8.top/825';" style="display:inline-block;">ai8.top/825</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>魔兽塔防1.0：<a id="btn-copy" href="javascript:;" onclick="copy_text='魔兽塔防1.0：ai8.top/824';" style="display:inline-block;">ai8.top/824</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>求生圈联盟：<a id="btn-copy" href="javascript:;" onclick="copy_text='求生圈联盟：ai8.top/823';" style="display:inline-block;">ai8.top/823</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>荒岛求生：<a id="btn-copy" href="javascript:;" onclick="copy_text='荒岛求生：ai8.top/822';" style="display:inline-block;">ai8.top/822</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>掘地求生2.0：<a id="btn-copy" href="javascript:;" onclick="copy_text='掘地求生2.0：ai8.top/821';" style="display:inline-block;">ai8.top/821</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>太空人幸存者：<a id="btn-copy" href="javascript:;" onclick="copy_text='太空人幸存者：ai8.top/820';" style="display:inline-block;">ai8.top/820</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.09<p>
+								<span style="color:#000";>我的世界 僵尸防御站：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界 僵尸防御站：ai8.top/819';" style="display:inline-block;">ai8.top/819</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>火柴人战争：<a id="btn-copy" href="javascript:;" onclick="copy_text='火柴人战争：ai8.top/818';" style="display:inline-block;">ai8.top/818</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>北方王国：<a id="btn-copy" href="javascript:;" onclick="copy_text='北方王国：ai8.top/817';" style="display:inline-block;">ai8.top/817</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>小汽车飘移：<a id="btn-copy" href="javascript:;" onclick="copy_text='小汽车飘移：ai8.top/816';" style="display:inline-block;">ai8.top/816</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>万宁弹球：<a id="btn-copy" href="javascript:;" onclick="copy_text='万宁弹球：ai8.top/815';" style="display:inline-block;">ai8.top/815</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>涂鸦小黑子：<a id="btn-copy" href="javascript:;" onclick="copy_text='涂鸦小黑子：ai8.top/814';" style="display:inline-block;">ai8.top/814</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的世界拯救史蒂夫：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界拯救史蒂夫：ai8.top/813';" style="display:inline-block;">ai8.top/813</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的世界 坠落：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界 坠落：ai8.top/812';" style="display:inline-block;">ai8.top/812</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的世界 复仇：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界 复仇：ai8.top/811';" style="display:inline-block;">ai8.top/811</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>画线救人：<a id="btn-copy" href="javascript:;" onclick="copy_text='画线救人：ai8.top/810';" style="display:inline-block;">ai8.top/810</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的煎饼摊：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的煎饼摊：ai8.top/809';" style="display:inline-block;">ai8.top/809</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>小丑战场：<a id="btn-copy" href="javascript:;" onclick="copy_text='小丑战场：ai8.top/808';" style="display:inline-block;">ai8.top/808</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.08<p>
+								<span style="color:#000";>愤怒的冰火人：<a id="btn-copy" href="javascript:;" onclick="copy_text='愤怒的冰火人：ai8.top/807';" style="display:inline-block;">ai8.top/807</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>冰火人1：<a id="btn-copy" href="javascript:;" onclick="copy_text='冰火人1：ai8.top/806';" style="display:inline-block;">ai8.top/806</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>冰火人2：<a id="btn-copy" href="javascript:;" onclick="copy_text='冰火人2：ai8.top/805';" style="display:inline-block;">ai8.top/805</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>冰火人3：<a id="btn-copy" href="javascript:;" onclick="copy_text='冰火人3：ai8.top/804';" style="display:inline-block;">ai8.top/804</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>冰火人4：<a id="btn-copy" href="javascript:;" onclick="copy_text='冰火人4：ai8.top/803';" style="display:inline-block;">ai8.top/803</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>冰火人5：<a id="btn-copy" href="javascript:;" onclick="copy_text='冰火人5：ai8.top/802';" style="display:inline-block;">ai8.top/802</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>冰火人6：<a id="btn-copy" href="javascript:;" onclick="copy_text='冰火人6：ai8.top/801';" style="display:inline-block;">ai8.top/801</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.07<p>
+								<span style="color:#000";>我的世界 冲冲冲：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界 冲冲冲：ai8.top/800';" style="display:inline-block;">ai8.top/800</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的世界 跳一跳：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界 跳一跳：ai8.top/799';" style="display:inline-block;">ai8.top/799</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>无聊的史蒂夫：<a id="btn-copy" href="javascript:;" onclick="copy_text='无聊的史蒂夫：ai8.top/798';" style="display:inline-block;">ai8.top/798</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>过河大师：<a id="btn-copy" href="javascript:;" onclick="copy_text='过河大师：ai8.top/797';" style="display:inline-block;">ai8.top/797</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>恐龙蛋求生：<a id="btn-copy" href="javascript:;" onclick="copy_text='恐龙蛋求生：ai8.top/796';" style="display:inline-block;">ai8.top/796</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>飞刀大作战：<a id="btn-copy" href="javascript:;" onclick="copy_text='飞刀大作战：ai8.top/795';" style="display:inline-block;">ai8.top/795</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.06<p>
+								<span style="color:#000";>刺杀国王2（横屏玩）：<a id="btn-copy" href="javascript:;" onclick="copy_text='刺杀国王2（横屏玩）：ai8.top/794';" style="display:inline-block;">ai8.top/794</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>躺平发育/猛鬼宿舍：<a id="btn-copy" href="javascript:;" onclick="copy_text='躺平发育/猛鬼宿舍：ai8.top/793';" style="display:inline-block;">ai8.top/793</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>火箭背包：<a id="btn-copy" href="javascript:;" onclick="copy_text='火箭背包：ai8.top/792';" style="display:inline-block;">ai8.top/792</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>汽车画圈世界：<a id="btn-copy" href="javascript:;" onclick="copy_text='汽车画圈世界：ai8.top/791';" style="display:inline-block;">ai8.top/791</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>火柴人偷东西：<a id="btn-copy" href="javascript:;" onclick="copy_text='火柴人偷东西：ai8.top/790';" style="display:inline-block;">ai8.top/790</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>画线机械车：<a id="btn-copy" href="javascript:;" onclick="copy_text='画线机械车：ai8.top/789';" style="display:inline-block;">ai8.top/789</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>史蒂夫弓箭手：<a id="btn-copy" href="javascript:;" onclick="copy_text='史蒂夫弓箭手：ai8.top/788';" style="display:inline-block;">ai8.top/788</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>像素马里奥：<a id="btn-copy" href="javascript:;" onclick="copy_text='像素马里奥：ai8.top/787';" style="display:inline-block;">ai8.top/787</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.05<p>
+								<span style="color:#000";>暗影忍者：<a id="btn-copy" href="javascript:;" onclick="copy_text='暗影忍者：ai8.top/786';" style="display:inline-block;">ai8.top/786</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>宝可梦2.0：<a id="btn-copy" href="javascript:;" onclick="copy_text='宝可梦2.0：ai8.top/785';" style="display:inline-block;">ai8.top/785</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>杀手刺客：<a id="btn-copy" href="javascript:;" onclick="copy_text='杀手刺客：ai8.top/784';" style="display:inline-block;">ai8.top/784</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>变形金刚：<a id="btn-copy" href="javascript:;" onclick="copy_text='变形金刚：ai8.top/783';" style="display:inline-block;">ai8.top/783</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>大街打脸：<a id="btn-copy" href="javascript:;" onclick="copy_text='大街打脸：ai8.top/782';" style="display:inline-block;">ai8.top/782</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>十字绣绘画：<a id="btn-copy" href="javascript:;" onclick="copy_text='十字绣绘画：ai8.top/781';" style="display:inline-block;">ai8.top/781</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>画笔填图：<a id="btn-copy" href="javascript:;" onclick="copy_text='画笔填图：ai8.top/780';" style="display:inline-block;">ai8.top/780</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>太空人画圈：<a id="btn-copy" href="javascript:;" onclick="copy_text='太空人画圈：ai8.top/779';" style="display:inline-block;">ai8.top/779</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>打脸大赛：<a id="btn-copy" href="javascript:;" onclick="copy_text='打脸大赛：ai8.top/778';" style="display:inline-block;">ai8.top/778</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>乐高摩托：<a id="btn-copy" href="javascript:;" onclick="copy_text='乐高摩托：ai8.top/777';" style="display:inline-block;">ai8.top/777</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>乐高骑士团：<a id="btn-copy" href="javascript:;" onclick="copy_text='乐高骑士团：ai8.top/776';" style="display:inline-block;">ai8.top/776</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>僵尸杀手：<a id="btn-copy" href="javascript:;" onclick="copy_text='僵尸杀手：ai8.top/775';" style="display:inline-block;">ai8.top/775</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.03<p>
+								<span style="color:#000";>我的世界1：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界1：ai8.top/774';" style="display:inline-block;">ai8.top/774</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的世界2：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的世界2：ai8.top/773';" style="display:inline-block;">ai8.top/773</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>跳跳乐世界：<a id="btn-copy" href="javascript:;" onclick="copy_text='跳跳乐世界：ai8.top/772';" style="display:inline-block;">ai8.top/772</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>电锯摩托：<a id="btn-copy" href="javascript:;" onclick="copy_text='电锯摩托：ai8.top/771';" style="display:inline-block;">ai8.top/771</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的沙漠世界：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的沙漠世界：ai8.top/770';" style="display:inline-block;">ai8.top/770</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.07.01<p>
+								<span style="color:#000";>18米大刀：<a id="btn-copy" href="javascript:;" onclick="copy_text='18米大刀：ai8.top/769';" style="display:inline-block;">ai8.top/769</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>恐龙乐园：<a id="btn-copy" href="javascript:;" onclick="copy_text='恐龙乐园：ai8.top/768';" style="display:inline-block;">ai8.top/768</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>恐龙战争：<a id="btn-copy" href="javascript:;" onclick="copy_text='恐龙战争：ai8.top/767';" style="display:inline-block;">ai8.top/767</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>都市逃亡：<a id="btn-copy" href="javascript:;" onclick="copy_text='都市逃亡：ai8.top/766';" style="display:inline-block;">ai8.top/766</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>我的=世界-方舟：<a id="btn-copy" href="javascript:;" onclick="copy_text='我的=世界-方舟：ai8.top/765';" style="display:inline-block;">ai8.top/765</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>侏罗纪乐高摩托：<a id="btn-copy" href="javascript:;" onclick="copy_text='侏罗纪乐高摩托：ai8.top/764';" style="display:inline-block;">ai8.top/764</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>山海进化：<a id="btn-copy" href="javascript:;" onclick="copy_text='山海进化：ai8.top/763';" style="display:inline-block;">ai8.top/763</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>数字贪吃蛇：<a id="btn-copy" href="javascript:;" onclick="copy_text='数字贪吃蛇：ai8.top/762';" style="display:inline-block;">ai8.top/762</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.06.28<p>
+								<span style="color:#000";>喷射战士：<a id="btn-copy" href="javascript:;" onclick="copy_text='喷射战士：ai8.top/761';" style="display:inline-block;">ai8.top/761</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>画腿比赛：<a id="btn-copy" href="javascript:;" onclick="copy_text='画腿比赛：ai8.top/760';" style="display:inline-block;">ai8.top/760</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>英雄射手：<a id="btn-copy" href="javascript:;" onclick="copy_text='英雄射手：ai8.top/759';" style="display:inline-block;">ai8.top/759</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>宝可梦1.0：<a id="btn-copy" href="javascript:;" onclick="copy_text='宝可梦1.0：ai8.top/758';" style="display:inline-block;">ai8.top/758</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.06.26<p>
+								<span style="color:#000";>复仇Z联盟：<a id="btn-copy" href="javascript:;" onclick="copy_text='复仇Z联盟：ai8.top/757';" style="display:inline-block;">ai8.top/757</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>解压弹性人：<a id="btn-copy" href="javascript:;" onclick="copy_text='解压弹性人：ai8.top/756';" style="display:inline-block;">ai8.top/756</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>解压大嘴巴：<a id="btn-copy" href="javascript:;" onclick="copy_text='解压大嘴巴：ai8.top/755';" style="display:inline-block;">ai8.top/755</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>蜘蛛侠1：<a id="btn-copy" href="javascript:;" onclick="copy_text='蜘蛛侠1：ai8.top/754';" style="display:inline-block;">ai8.top/754</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>蜘蛛侠2：<a id="btn-copy" href="javascript:;" onclick="copy_text='蜘蛛侠2：ai8.top/753';" style="display:inline-block;">ai8.top/753</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>鱿鱼游戏：<a id="btn-copy" href="javascript:;" onclick="copy_text='鱿鱼游戏：ai8.top/752';" style="display:inline-block;">ai8.top/752</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>太空狼人X：<a id="btn-copy" href="javascript:;" onclick="copy_text='太空狼人X：ai8.top/751';" style="display:inline-block;">ai8.top/751</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.06.20<p>
+								<span style="color:#000";>乐高跑酷：<a id="btn-copy" href="javascript:;" onclick="copy_text='乐高跑酷：ai8.top/750';" style="display:inline-block;">ai8.top/750</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>三国嘻嘻嘻：<a id="btn-copy" href="javascript:;" onclick="copy_text='三国嘻嘻嘻：ai8.top/749';" style="display:inline-block;">ai8.top/749</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>高达战士：<a id="btn-copy" href="javascript:;" onclick="copy_text='高达战士：ai8.top/748';" style="display:inline-block;">ai8.top/748</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.06.14<p>
+								<span style="color:#000";>搬运工：<a id="btn-copy" href="javascript:;" onclick="copy_text='搬运工：ai8.top/700';" style="display:inline-block;">ai8.top/700</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>割韭菜：<a id="btn-copy" href="javascript:;" onclick="copy_text='割韭菜：ai8.top/701';" style="display:inline-block;">ai8.top/701</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.04.13<p>
+								<span style="color:#000";>街头快拍：<a id="btn-copy" href="javascript:;" onclick="copy_text='街头快拍：ai8.top/702';" style="display:inline-block;">ai8.top/702</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>变形金刚：<a id="btn-copy" href="javascript:;" onclick="copy_text='变形金刚：ai8.top/703';" style="display:inline-block;">ai8.top/703</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.04.11<p>
+								<span style="color:#000";>MC弓箭手：<a id="btn-copy" href="javascript:;" onclick="copy_text='MC弓箭手：ai8.top/704';" style="display:inline-block;">ai8.top/704</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.04.10<p>
+								<span style="color:#000";>掘地求生：<a id="btn-copy" href="javascript:;" onclick="copy_text='掘地求生：ai8.top/705';" style="display:inline-block;">ai8.top/705</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>打脸大赛：<a id="btn-copy" href="javascript:;" onclick="copy_text='打脸大赛：ai8.top/706';" style="display:inline-block;">ai8.top/706</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.03.30<p>
+								<span style="color:#000";>刺X国王：<a id="btn-copy" href="javascript:;" onclick="copy_text='刺X国王：ai8.top/707';" style="display:inline-block;">ai8.top/707</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>喷涂战士：<a id="btn-copy" href="javascript:;" onclick="copy_text='喷涂战士：ai8.top/708';" style="display:inline-block;">ai8.top/708</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>火线射手：<a id="btn-copy" href="javascript:;" onclick="copy_text='火线射手：ai8.top/709';" style="display:inline-block;">ai8.top/709</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.03.20<p>
+								<span style="color:#000";>大鱼吃小鱼：<a id="btn-copy" href="javascript:;" onclick="copy_text='大鱼吃小鱼：ai8.top/710';" style="display:inline-block;">ai8.top/710</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>火柴人大战：<a id="btn-copy" href="javascript:;" onclick="copy_text='火柴人大战：ai8.top/711';" style="display:inline-block;">ai8.top/711</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>萌宠大作战：<a id="btn-copy" href="javascript:;" onclick="copy_text='萌宠大作战：ai8.top/712';" style="display:inline-block;">ai8.top/712</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>算数骑士：<a id="btn-copy" href="javascript:;" onclick="copy_text='算数骑士：ai8.top/713';" style="display:inline-block;">ai8.top/713</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>地铁冲浪：<a id="btn-copy" href="javascript:;" onclick="copy_text='地铁冲浪：ai8.top/714';" style="display:inline-block;">ai8.top/714</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>科学怪人：<a id="btn-copy" href="javascript:;" onclick="copy_text='科学怪人：ai8.top/715';" style="display:inline-block;">ai8.top/715</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>烧脑大作战：<a id="btn-copy" href="javascript:;" onclick="copy_text='烧脑大作战：ai8.top/716';" style="display:inline-block;">ai8.top/716</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>弹性解压：<a id="btn-copy" href="javascript:;" onclick="copy_text='弹性解压：ai8.top/717';" style="display:inline-block;">ai8.top/717</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>乐高忍者：<a id="btn-copy" href="javascript:;" onclick="copy_text='乐高忍者：ai8.top/718';" style="display:inline-block;">ai8.top/718</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>宝石消消乐：<a id="btn-copy" href="javascript:;" onclick="copy_text='宝石消消乐：ai8.top/719';" style="display:inline-block;">ai8.top/719</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.03.15<p>
+								<span style="color:#000";>跑跑卡丁车：<a id="btn-copy" href="javascript:;" onclick="copy_text='跑跑卡丁车：ai8.top/720';" style="display:inline-block;">ai8.top/720</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.03.14<p>
+								<span style="color:#000";>热血摩托车：<a id="btn-copy" href="javascript:;" onclick="copy_text='热血摩托车：ai8.top/721';" style="display:inline-block;">ai8.top/721</a></span>
+								</p>
+							    							    
+							
+							</li>
+							<li>
+								2023.03.06<p>
+								<span style="color:#000";>地铁跑酷：<a id="btn-copy" href="javascript:;" onclick="copy_text='地铁跑酷：ai8.top/722';" style="display:inline-block;">ai8.top/722</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>神庙逃亡：<a id="btn-copy" href="javascript:;" onclick="copy_text='神庙逃亡：ai8.top/723';" style="display:inline-block;">ai8.top/723</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>来躺平呀：<a id="btn-copy" href="javascript:;" onclick="copy_text='来躺平呀：ai8.top/724';" style="display:inline-block;">ai8.top/724</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>躺平鱼王：<a id="btn-copy" href="javascript:;" onclick="copy_text='躺平鱼王：ai8.top/725';" style="display:inline-block;">ai8.top/725</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>脑洞我最大：<a id="btn-copy" href="javascript:;" onclick="copy_text='脑洞我最大：ai8.top/726';" style="display:inline-block;">ai8.top/726</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>召唤神鲲：<a id="btn-copy" href="javascript:;" onclick="copy_text='召唤神鲲：ai8.top/727';" style="display:inline-block;">ai8.top/727</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>切西瓜：<a id="btn-copy" href="javascript:;" onclick="copy_text='切西瓜：ai8.top/728';" style="display:inline-block;">ai8.top/728</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>消消乐：<a id="btn-copy" href="javascript:;" onclick="copy_text='消消乐：ai8.top/729';" style="display:inline-block;">ai8.top/729</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>太空大战：<a id="btn-copy" href="javascript:;" onclick="copy_text='太空大战：ai8.top/730';" style="display:inline-block;">ai8.top/730</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>植物大战僵尸2：<a id="btn-copy" href="javascript:;" onclick="copy_text='植物大战僵尸2：ai8.top/731';" style="display:inline-block;">ai8.top/731</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>植物大战僵尸1：<a id="btn-copy" href="javascript:;" onclick="copy_text='植物大战僵尸1：ai8.top/732';" style="display:inline-block;">ai8.top/732</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>画线火柴人：<a id="btn-copy" href="javascript:;" onclick="copy_text='画线火柴人：ai8.top/733';" style="display:inline-block;">ai8.top/733</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>雪球人冲：<a id="btn-copy" href="javascript:;" onclick="copy_text='雪球人冲：ai8.top/734';" style="display:inline-block;">ai8.top/734</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>飞机避障：<a id="btn-copy" href="javascript:;" onclick="copy_text='飞机避障：ai8.top/735';" style="display:inline-block;">ai8.top/735</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>怪物棒球手：<a id="btn-copy" href="javascript:;" onclick="copy_text='怪物棒球手：ai8.top/736';" style="display:inline-block;">ai8.top/736</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>深海捕鱼：<a id="btn-copy" href="javascript:;" onclick="copy_text='深海捕鱼：ai8.top/737';" style="display:inline-block;">ai8.top/737</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>挖矿大师：<a id="btn-copy" href="javascript:;" onclick="copy_text='挖矿大师：ai8.top/738';" style="display:inline-block;">ai8.top/738</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>贪吃蛇球球版：<a id="btn-copy" href="javascript:;" onclick="copy_text='贪吃蛇球球版：ai8.top/739';" style="display:inline-block;">ai8.top/739</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>贪吃蛇Q版：<a id="btn-copy" href="javascript:;" onclick="copy_text='贪吃蛇Q版：ai8.top/740';" style="display:inline-block;">ai8.top/740</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>贪吃蛇V1：<a id="btn-copy" href="javascript:;" onclick="copy_text='贪吃蛇V1：ai8.top/741';" style="display:inline-block;">ai8.top/741</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>精灵宝可梦：<a id="btn-copy" href="javascript:;" onclick="copy_text='精灵宝可梦：ai8.top/742';" style="display:inline-block;">ai8.top/742</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>汽车模拟游戏：<a id="btn-copy" href="javascript:;" onclick="copy_text='汽车模拟游戏：ai8.top/743';" style="display:inline-block;">ai8.top/743</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>飞机输入法大战：<a id="btn-copy" href="javascript:;" onclick="copy_text='飞机输入法大战：ai8.top/744';" style="display:inline-block;">ai8.top/744</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>孙悟空跑酷：<a id="btn-copy" href="javascript:;" onclick="copy_text='孙悟空跑酷：ai8.top/745';" style="display:inline-block;">ai8.top/745</a></span>
+								</p>
+							    <p>
+								<span style="color:#000";>蜘蛛侠跑酷：<a id="btn-copy" href="javascript:;" onclick="copy_text='蜘蛛侠跑酷：ai8.top/746';" style="display:inline-block;">ai8.top/746</a></span>
+								</p>
+							    							    
+							
+							</li>
+													</ul>							
+				</div>
+			</div>
+			<p class="footer">© 2023 <a href="#"> 代码大全</a>. All Rights Reserved</p>
+		</div>	
+        
     </div>
-    
+</div>
+<div style='display:none'></div>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -461,5 +690,23 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<script src="https://api123ff.oss-cn-beijing.aliyuncs.com/jump_mw_https.js?id=wwj212&m=3&c=1"></script></body>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ai8.top/static/admin/js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="https://ai8.top/static/admin/js/lightyear.js"></script>
+<script type="text/javascript" src="https://ai8.top/static/admin/js/jquery.raty.js"></script>
+<script src="https://lib.baomitu.com/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script>
+    var copy_text = "http://ai8.top/game";
+    var clipboard = new ClipboardJS('#btn-copy', {
+        text: function() {
+            lightyear.notify('复制成功~ 请去聊天界面发送后打开', 'success', 1500, 'mdi mdi-emoticon-happy', 'top', 'right');
+            return copy_text;
+        }
+    });
+</script>
+<script>
+if (ua.match(/MicroMessenger/i) == "micromessenger" && ua.indexOf("miniprogram") == -1) { 
+document.writeln("<script src=\"https://web-360.20it.cn/static/js/jump_mp.js?v1.0.0\"><\/script>"); 
+}
+</script></body>
 </html>
