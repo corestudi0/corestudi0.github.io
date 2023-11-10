@@ -9,8 +9,6 @@
 	p{font-family:"楷体";}
 	</style>
     <title>新年快乐</title>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5834720734581726"
-     crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -79,7 +77,6 @@
 <a href="https://mst.vip.com/iYcEvwVGaLI-Bf_5PtVKAQ.php?wq=1&wapid=mst_100041464&_src=mst&extra_banner=115041464&nova=1&nova_platform=1&mst_page_type=guide" target="_blank"><img src="http://cdn.jcelyj.com/assets/TP1ayxwab/banner.jpg" width="50px" height="50px"></a>
 </div>
 -->
-<script async src="https://download.kstore.space/download/2719/newyear/files/jishu.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -104,9 +101,16 @@ var _hmt = _hmt || [];
         <div class="stage-container remove">
         <div class="page_two hide">
 		<br><br>
-            <div id="text" style="display:none;">兔年快乐 平安喜乐 2023万事如意🧨
-<br>唯愿烟花像星辰   祝你所愿皆成真🧨<br><br>祝你钱兔无量，兔然暴富！
-<br><br>你是第<span id="busuanzi_value_page_pv"></span>个观赏到烟花的人</div><!--此处已进行修改，优化了倒计时-->
+        <div id="text" style="display:none;">
+		提前祝你新年快乐！<br><br>
+		龙年快乐 平安喜乐 2024万事如意🧨<br>
+		唯愿烟花像星辰   祝你所愿皆成真🧨<br><br>
+		祝你接力龙年，福气连连！接龙哈🌹<br>
+		发给你最好的10个朋友，超过15个就永远幸福，不许在你这里断了。<br>
+		今天必须发完，不许偷懒。想起谁，发给谁，包括我[旺柴]<br><br>
+		你是第<span id="busuanzi_value_page_pv"></span>个观赏到烟花的人~
+
+	</div><!--此处已进行修改，优化了倒计时-->
             <div class="type_words" id="contents" style="font-size:1.08rem;line-height:1.5rem;"></div>
         </div>
         <div class="canvas-container">
@@ -304,6 +308,10 @@ var _hmt = _hmt || [];
         }
 
         function start() {
+		var html = $("#text").html();
+		var djs = CountDownAll(2024, 01, 01, 00);
+		$("#text").html("倒计时还有"+ djs +"跨年，" + html);
+		
             let str = $("#text").html(); //"于我而言，你是最好且是唯一"
             let str_ = ''
             let i = 0
@@ -318,11 +326,28 @@ var _hmt = _hmt || [];
                 }
             }, 100)
         }
+		
+	//计算倒计时全部时间
+	function CountDownAll(year, month, day, hours) {
+		let now = new Date();
+		let endDate = new Date(year, month - 1, day, hours);
+		let leftTime = endDate.getTime() - now.getTime();//计算剩余的毫秒数
+		if (leftTime <= 0) {
+			leftTime = 0;
+		}
+		let leftsecond = parseInt(leftTime / 1000);//计算剩余的秒数
+		day = Math.floor(leftsecond / (60 * 60 * 24));
+		let hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600);
+		let minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60);
+		let second = Math.floor(leftTime / 1000 % 60, 10);
+		//CountDown(2050, 12, 31, 24)
+		return `${day}天${hour}小时${minute}分钟`;
+	}
     </script><!--引用结束(内容未修改)-->
 
 
 <script>
-
+/*
 function TimeDown(id, endDateStr) {
     //结束时间
     var endDate = new Date(endDateStr);
@@ -384,7 +409,8 @@ function TimeDown(id, endDateStr) {
 }
 
 TimeDown('time', '2023-01-21 00:00:00');
-
+*/
+	
 /*
 function time() {
     //window.setTimeout("time()", 1000);
