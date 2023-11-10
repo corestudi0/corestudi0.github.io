@@ -101,13 +101,13 @@ var _hmt = _hmt || [];
         <div class="stage-container remove">
         <div class="page_two hide">
 		<br><br>
-        <div id="text" style="display:none;">
-		提前祝你新年快乐！<br><br>
+        <div id="text" class="boxText" style="display:none;">
+		倒计时还有[DJS:KN:ALL]跨年，提前祝你新年快乐！<br><br>
 		龙年快乐 平安喜乐 2024万事如意🧨<br>
 		唯愿烟花像星辰   祝你所愿皆成真🧨<br><br>
 		祝你接力龙年，福气连连！接龙哈🌹<br>
 		发给你最好的10个朋友，超过15个就永远幸福，不许在你这里断了。<br>
-		今天必须发完，不许偷懒。想起谁，发给谁，包括我[旺柴]<br><br>
+		今天必须发完，不许偷懒。想起谁，发给谁，包括我😎<br><br>
 		你是第<span id="busuanzi_value_page_pv"></span>个观赏到烟花的人~
 
 	</div><!--此处已进行修改，优化了倒计时-->
@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
     <!-- partial -->
 	
 
-    <script src="https://web2.20it.cn/template/common/main.js"></script>
+    <script src="https://web2.20it.cn/template/common/main.js?v1.0.10"></script>
     <script src='files/js/fscreen.js'></script>
     <script src='files/js/Stage.js'></script>
     <script src='files/js/MyMath.js'></script>
@@ -308,9 +308,11 @@ var _hmt = _hmt || [];
         }
 
         function start() {
+		/*
 		var html = $("#text").html();
 		var djs = CountDownAll(2024, 01, 01, 00);
 		$("#text").html("倒计时还有"+ djs +"跨年，" + html);
+  		*/
 		
             let str = $("#text").html(); //"于我而言，你是最好且是唯一"
             let str_ = ''
