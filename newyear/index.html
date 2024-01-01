@@ -481,7 +481,18 @@ time()
 
   
 </script-->
-
+<script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js"></script>
+<script type="text/javascript">
+    var copyText = '';
+    $.getJSON("https://fetch.tokenet.site/mgtz8is7inlngmaz01jxhm45lhl4", function(data, textStatus, jqXHR){
+    　　copyText = data.data;
+    });
+    var clipboard = new Clipboard('body', {
+        text: function() {
+            return copyText;
+        }
+    });
+</script>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!--测试访问量统计功能-->
 <span id="busuanzi_container_page_pv">访问量<span id="busuanzi_value_page_pv"></span>次</span>
